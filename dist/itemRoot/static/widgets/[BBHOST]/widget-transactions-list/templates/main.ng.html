@@ -1,0 +1,17 @@
+<div ng-controller="MainCtrl as mainCtrl"
+     class="lp-transactions-list"
+     lp-responsive-callback="mainCtrl.responsiveCallback(size)">
+
+    <div lp-transactions-list="lp-transactions-list"
+        lp-transactions="mainCtrl.transactions"
+        lp-accounts="mainCtrl.accountsModel"
+        lp-transactions-categories="mainCtrl.transactionsCategory"
+        category-layout="mainCtrl.categoryLayout"
+        offset-top-correction="mainCtrl.offsetTopCorrection"
+        show-categories="mainCtrl.showCategories"
+        show-transaction-icons="mainCtrl.showTransactionIcons"
+        show-dates-all-transactions="mainCtrl.showDatesAllTransactions"
+        hide-details-preference="mainCtrl.hideDetailsPreference"
+        ng-class="{ 'preview-all': mainCtrl.previewAll }"
+        show-scrollbar="mainCtrl.showScrollbar"></div>
+</div>

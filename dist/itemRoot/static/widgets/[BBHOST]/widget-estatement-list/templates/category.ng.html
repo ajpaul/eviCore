@@ -1,0 +1,16 @@
+<div class="category-panel">
+    <div class="category-title" lp-i18n="{{category.name}}"></div>
+    <div class="category-body">
+        <ul>
+            <li ng-repeat="document in mainCtrl.sliceDocuments(category.documents, 4)">
+                <div lp-template="'templates/document.ng.html'"></div>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary category-btn"
+            lp-i18n="View all CATEGORY_NAME"
+            translate-values="{categoryName:category.name}"
+            ng-click="mainCtrl.showCategoryStatements(category.name)"
+            ng-show="category.documents.length > 4">
+        </button>
+    </div>
+</div>

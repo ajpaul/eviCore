@@ -1,0 +1,157 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "title": "Author",
+    "description": "Structured Content example that models an author for use in a customer-facing weblog.",
+
+    "type": "object",
+
+    "definitions": {
+
+        "citiesUnitedKingdom": {
+            "enum": [
+                "Aberdeen",
+                "Bath",
+                "Belfast",
+                "Birmingham",
+                "Bradford",
+                "Brighton",
+                "Bristol",
+                "Cambridge",
+                "Cardiff",
+                "Crewe",
+                "Chichester",
+                "Derby",
+                "Dublin",
+                "Dundee",
+                "Durham",
+                "Edinburgh",
+                "Exeter",
+                "Glasgow",
+                "Gloucester",
+                "Halifax",
+                "Hull (Kingston)",
+                "Leeds",
+                "Leicester",
+                "Liverpool",
+                "London",
+                "Manchester",
+                "Merthyr Tydfil",
+                "Middlesbrough",
+                "Newcastle",
+                "Northampton",
+                "Norwich",
+                "Nottingham",
+                "Oldham",
+                "Oxford",
+                "Plymouth",
+                "Portsmouth",
+                "Preston",
+                "Sheffield",
+                "Southampton",
+                "Stoke",
+                "Sunderland",
+                "Swansea",
+                "Swindon",
+                "York"
+            ]
+        },
+
+        "postcodeUnitedKingdom": {
+            "type": "string",
+            "pattern": "^[A-Z]{1,2}[1-9][0-9]{0,1} [1-9][0-9]{0,1}[A-Z]{2}$"
+        },
+
+        "address": {
+            "title": "Address",
+            "type": "object",
+            "properties": {
+
+                "type": {
+                    "title": "Address Type",
+                    "enum": ["Home", "Work", "Unknown"],
+                    "default": "Work",
+                    "metadata": {
+                        "infoText": "Specify either home or work address, or unknown."
+                    }
+                },
+
+                "postcode": {
+                    "title": "UK Postal Code",
+                    "$ref": "#/definitions/postcodeUnitedKingdom",
+                    "metadata": {
+                        "infoText": "Specify the postal code. It will be used to fetch geographic data on the contact page.",
+                        "placeholderText": "Enter a valid UK postal code (e.g. AB12 34CD)."
+                    }
+                },
+
+                "street": {
+                    "title": "Street Name",
+                    "type": "string",
+                    "metadata": {
+                        "infoText": "Specify the street name. It will be used to fetch geographic data on the contact page.",
+                        "placeholderText": "Enter the street name and house number.",
+                        "renderingHint": "multiline",
+                        "rows": 2
+                    }
+                },
+
+                "city": {
+                    "title": "City",
+                    "$ref": "#/definitions/citiesUnitedKingdom",
+                    "metadata": {
+                        "infoText": "Select a city from the list of participating cities in the blogging campaign."
+                    }
+                }
+            },
+
+            "required": [ "street", "postcode" ]
+        }
+    },
+
+    "properties": {
+
+        "name": {
+            "title": "Author Name",
+            "type": "string",
+            "maxLength": 50,
+            "metadata": {
+                "infoText": "Enter the name or alias of the author that will be visible to end users.",
+                "placeholderText": "Enter author name (max. 50 chars)"
+            }
+        },
+
+        "addresses": {
+            "title": "Addresses (home / work)",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/address"
+            },
+            "minItems": 0,
+            "metadata": {
+                "infoText": "Specify all known addresses of the author. Work addresses will appear on the contact page."
+            }
+        },
+
+        "picture": {
+            "title": "Picture / Avatar",
+            "type": "string",
+            "metadata": {
+                "infoText": "Provide a picture or avatar of the author that will be shown in the header.",
+                "renderingHint": "image"
+            }
+        },
+
+        "summary": {
+            "title": "Blog Summary",
+            "type": "string",
+            "metadata": {
+                "infoText": "The blog summary, if provided, will appear on the landing page below the header.",
+                "placeholderText": "Provide an optional summary of the author's interests and work.",
+                "renderingHint": "richTextEditor"
+            }
+        }
+    },
+
+    "required": [ "name", "picture" ]
+}

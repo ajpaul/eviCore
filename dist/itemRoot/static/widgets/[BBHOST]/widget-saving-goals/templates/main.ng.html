@@ -1,0 +1,10 @@
+<div class="ng-cloak" ng-controller="SavingGoalAppCtrl as appCtrl" ng-class="responsiveClass">
+    <div class="lp-widget-content widget widget-default" role="application">
+        <div ng-show="appCtrl.state.view == 'list'">
+             <div lp-template="'templates/savingGoalList.html'"></div>
+        </div>
+        <div ng-show="appCtrl.state.view == 'editor:create' || appCtrl.state.view == 'editor:update'">
+             <div lp-template="'templates/savingGoalEditor.html'"></div>
+        </div>
+    </div>
+</div>

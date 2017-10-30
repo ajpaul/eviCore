@@ -1,0 +1,9 @@
+{{#isCurrentLink}}
+    <li><span>{{title}}</span></li>
+{{/isCurrentLink}}
+{{^isCurrentLink}}
+    <li><a href="{{Url}}" {{#isExternalLink}}target="_blank"{{/isExternalLink}}>{{title}}</a></li>
+    {{#children}}
+        {{> mustache_mid_level}}
+    {{/children}}
+{{/isCurrentLink}}

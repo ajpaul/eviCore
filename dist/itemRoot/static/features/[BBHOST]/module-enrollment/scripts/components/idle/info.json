@@ -1,0 +1,9 @@
+{
+  "title": "idle Component",
+  "custom": {
+    "bowerRoute": "../../../"
+  },
+  "tag": [
+    "launchpad-feature"
+  ]
+}

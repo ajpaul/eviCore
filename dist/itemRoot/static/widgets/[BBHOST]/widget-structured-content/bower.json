@@ -1,0 +1,27 @@
+{
+  "name": "widget-structured-content",
+  "version": "1.0.9",
+  "description": "Widget Structured Content",
+  "main": "./scripts/main.js",
+  "authors": [],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "base": "^3.0.1",
+    "core": "^3.0.1",
+    "ui": "^3.0.5",
+    "module-content": "^2.0.1"
+  },
+  "devDependencies": {
+    "theme-default": "~1.0.16",
+    "config": "~3.5.2",
+    "requirejs": "~2.1.22",
+    "mock": "~1.1.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "module-places",
+  "version": "3.1.1",
+  "main": "./scripts/main.js",
+  "homepage": "http://stash.backbase.com:7990/projects/lpm/repos/module-places/browse",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "3.x",
+    "core": "3.x",
+    "ui": "3.x",
+    "requirejs-plugins": "~1.0.3"
+  },
+  "devDependencies": {
+    "config": "3.x",
+    "angular-mocks": "^1.5.7"
+  }
+}

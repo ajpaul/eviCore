@@ -1,0 +1,43 @@
+{{#contentRef}}
+<div class="blog-author clearfix">
+    <div class="header">
+        {{instanceName}}
+    </div>
+    {{#avatar}}
+        <div class="picture">
+            <img src="{{path}}"
+                alt="{{alt}}" width="{{width}}" height="{{height}}">
+        </div>
+    {{/avatar}}
+    <div class="info">
+        {{#name}}
+            <h5>Ik ben {{name}}</h5>
+        {{/name}}
+        {{#diaryEntry}}
+            {{#html}}
+                <p>{{{html}}}</p><br>
+            {{/html}}
+            {{^html}}
+                <p>{{diaryEntry}}</p><br>
+            {{/html}}
+        {{/diaryEntry}}
+        {{#mood}}
+            <p>I'm {{mood}}</p>
+        {{/mood}}
+        <ul class="contact">
+            <li>Addresses:
+                <ul>
+                {{#addresses}}
+                    <li>{{street}}, {{postcode}} {{city}}</li>
+                {{/addresses}}
+                </ul>
+            </li>
+        </ul>
+        <ul class="enum">
+        {{#tags}}
+            <li>{{.}}</li>
+        {{/tags}}
+        </ul>
+    </div>
+</div>
+{{/contentRef}}

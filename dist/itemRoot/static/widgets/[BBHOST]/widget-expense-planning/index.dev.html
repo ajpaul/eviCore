@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Expense Planning</title>
+
+    <!-- add theme -->
+    <link rel="stylesheet" href="bower_components/theme/themes/flatly/css/base.css">
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <!-- add main libs only dev required -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+
+    <script>
+        require(['base', 'mock'], function (base, mock) {
+            mock.Widget({ // Returns Promise.
+                model: './model.xml',
+                view: document.body,
+                preferences: {
+                    // Override preferences from model.xml
+                    'src': './index.dev.html'
+                }
+            }).then(function(__WIDGET__) {
+                base.requireWidget(__WIDGET__, 'scripts/main');
+            });
+        });
+    </script>
+
+</head>
+<body class="lp-expense-planning">
+
+<div class="ng-cloak" ng-controller="ExpensePlanningController" ng-class="responsiveClass">
+
+    <!--  Full Content -->
+    <div class="lp-widget-content">
+            <!--  Body Content -->
+            <div class="lp-widget-body widget-body panel-body">
+                <div ng-include="template.list"></div>
+                <div lp-calendar="" view="calendarView" content="calendarPayments" list="paymentListOnDates"></div>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>

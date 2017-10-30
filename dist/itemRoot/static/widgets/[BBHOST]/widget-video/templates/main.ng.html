@@ -1,0 +1,13 @@
+<div ng-controller="MainCtrl as mainCtrl">
+    <iframe class="lp-video-frame"
+        webkitAllowFullScreen="true"
+        mozallowfullscreen="true"
+        allowFullScreen="true"
+        ng-hide="mainCtrl.showError"
+        ng-src="{{mainCtrl.url}}"
+        ng-style="{
+            height: mainCtrl.height
+        }"/>
+
+    <span class="lp-video-error" ng-show="mainCtrl.showError" lp-i18n="Please, set all preferences."></span>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <title>Advanced Content Template Widget</title>
+
+    <link rel="stylesheet" type="text/css" href="dist/styles/base.css" />
+
+    <g:preferences>
+        <g:preference name="bgImageContainer" label="Background position" type="select-one" default="widget">
+            <g:enumeration label="Widget" value="widget" />
+            <g:enumeration label="Fullscreen" value="fullscreen" />
+        </g:preference>
+
+        <g:preference name="bgImageSize" type="select-one" default="auto">
+            <g:enumeration label="Auto" value="auto" />
+            <g:enumeration label="Contain" value="contain" />
+            <g:enumeration label="Cover" value="cover" />
+        </g:preference>
+
+        <g:preference name="bgImageScroll" label="Background Scroll" type="select-one" default="scroll">
+            <g:enumeration label="Scroll" value="scroll" />
+            <g:enumeration label="Fixed" value="fixed" />
+        </g:preference>
+    </g:preferences>
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'dist/scripts/main');" class="widget-advanced-content-body">
+    <div class="widget-advanced-content">
+        <g:include proxy="false" src="$(contextRoot)/contenttemplates/rendered">
+            <g:http-param name="contextItemName" value="__WIDGET__.model.contextItemName" />
+            <g:http-param name="uuid" value="__WIDGET__.model.uuid" />
+        </g:include>
+    </div>
+</body>
+</html>

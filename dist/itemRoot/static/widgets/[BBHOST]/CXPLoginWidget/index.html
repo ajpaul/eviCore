@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <meta name="author" content="Backbase" />
+        <meta name="keywords" content="widget" />
+        <meta name="description" content="Login Widget" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="css/login.css" type="text/css" />
+        <script type="text/javascript" src="js/login.js"></script>
+    </head>
+    <body class="cxp-universal-login logged-out cloak" g:onload="b$.universal.widgets.LoginWidget.start(__WIDGET__)">
+
+        <form role="form" autocomplete="off" name="loginForm" class="login">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="username" name="j_username" autocapitalize="off" required="required"/>
+                <span class="label label-danger" role="error"></span>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="password" name="j_password" autocapitalize="off" required="required"/>
+                <span class="label label-danger" role="error"></span>
+            </div>
+            <div class="form-group buttons-group">
+                <input type="button" data-button-submit="/bb-public-api/security/login" name="login" class="btn btn-block" value="Log In" />
+            </div>
+            <div class="form-group form-errors">
+                <p data-response-message="" class="alert alert-danger"></p>
+            </div>
+        </form>
+
+        <div class="logout">
+            <span class="username"></span>
+            <input type="button" data-button-submit="/bb-public-api/security/logout" name="logout" class="btn btn-link" value="Log Out" />
+        </div>
+
+    </body>
+</html>

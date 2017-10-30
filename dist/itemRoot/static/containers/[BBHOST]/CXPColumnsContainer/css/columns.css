@@ -1,0 +1,12 @@
+.bp-ColumnsContainer-column {
+	float: left;
+}
+.bp-ColumnsContainer-column--area {
+	min-height: 50px;
+}
+.bd-dm-hovered .bp-ColumnsContainer-column--area {
+	min-height: 50px;
+}
+.bp-ColumnsContainer.pm-design-dragContainer .bp-ColumnsContainer-column .pm-design-showArea {
+	min-height: 50px;
+}

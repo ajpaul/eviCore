@@ -1,0 +1,16 @@
+{
+    "en-US": {
+        "CATEGORY_NAME for USER_NAME": "{{categoryName}} for {{userName}}",
+        "View all CATEGORY_NAME": "View all {{categoryName}}",
+        "Sorry USER_NAME, you have no estatements yet.": "Sorry {{userName}}, you have no estatements yet.",
+        "This is where you access your statements. They will be available in the next billing cycle.": "This is where you access your statements. They will be available in the next billing cycle."
+    },
+    "nl-NL": {
+        "Enrol for Estatements": "Inschrijven voor Estatements",
+        "Statement as of": "Verklaring als van"
+    },
+    "ru-RU": {
+        "Enrol for Estatements": "Получать отчеты",
+        "Statement as of": "Отчет за"
+    }
+}

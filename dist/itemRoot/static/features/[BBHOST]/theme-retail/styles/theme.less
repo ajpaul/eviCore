@@ -1,0 +1,385 @@
+//
+// Overwrite.less
+// Styles in this file are used to overwrite default behaviour of components
+// --------------------------------------------------
+
+
+// Hide accessibility outline.
+.pageContainer{
+  .lp-launcher-area:focus,
+  button:focus,
+  div:focus,
+  h1:focus,
+  h2:focus,
+  p:focus,
+  &:active,
+  &:hover,
+  &:focus{
+    outline: none !important;
+  }
+}
+
+// Remove padding around containers on mobile
+@media (max-width: 797px) {
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.designMode .text-center .bd-ice-wrapper img{
+  display: inline-block;
+}
+
+.lp-lc{
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media (max-width: 767px){
+    padding-top: 25px;
+  }
+}
+
+// Navbar Theming
+.navbar{
+  border: 0;
+
+  .navbar-nav{
+    margin-top: 0px;
+
+    a{
+      text-transform: capitalize!important;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .navbar-mobile-profile{
+    padding: 0px;
+
+    i{
+      padding: 25px;
+    }
+  }
+
+  .navbar-toggle{
+    border-color: transparent;
+  }
+
+  &.navbar-default, &.navbar-inverse {
+    .navbar-nav{
+      a::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: 0;
+
+        transition: background-color 0.6s ease-in-out;
+      }
+    }
+  }
+
+  &.navbar-default{
+    .navbar-nav{
+      a::after{
+        background-color: @navbar-default-bg;
+      }
+    }
+  }
+
+  &.navbar-inverse{
+    .navbar-nav{
+      a::after{
+        background-color: #FFF;
+      }
+    }
+  }
+
+  &.navbar-inverse {
+    .navbar-nav > .active > a::after,
+    .navbar-nav > li > a:hover::after,
+    .navbar-nav > li > a:focus::after {
+      background-color: @navbar-link-underline-color;
+    }
+  }
+
+  &.navbar-static-top{
+    z-index: @zindex-navbar!important;
+  }
+}
+
+
+.lp-widget-login-multifactor{
+
+  background-color: #FFF;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;
+  padding: 15px 5px 15px 5px;
+
+  .pull-right{
+    float: none!important;
+  }
+
+  .btn-primary{
+    width: 100%;
+  }
+}
+
+.bd-structured-content-widget{
+  margin-bottom: 20px;
+}
+
+.lp-launcher-tab{
+
+  a{
+    padding: 5px;
+  }
+
+  .lp-icon{
+    opacity: 0.5;
+  }
+
+}
+
+.lp-transactions-sticky-header{
+
+  .fixed-overlay{
+    position: static!important;
+    background: none;
+  }
+
+}
+
+.lp-lc--main{
+  /*margin-left: 20px;*/
+}
+
+
+.panel-launcher .list-group .list-group-item {
+  padding: 15px 25px;
+
+  .lp-line-item-arrow{
+    padding-right: 25px;
+  }
+}
+
+
+.panel-launcher .panel-heading.panel-round .pull-right.caret{
+  margin-top: 1%;
+}
+
+
+.lp-page-children .bp-container.navbar-fixed-top{
+  z-index: @zindex-navbar-fixed;
+}
+
+
+.lp-lc-heading.hidden-xs{
+  display: block!important;
+
+  h3{
+    text-align: center;
+  }
+}
+
+.lp-overlay{
+  opacity: 0.4!important;
+}
+
+.lp-launcher-area-main{
+
+  .nav-tabs{
+    margin-top: 10px;
+  }
+}
+
+// LP Accounts Widget
+.lp-accounts .lp-widget-content .grouped-account span.account-icon{
+  width: initial;
+}
+
+// LP Accounts select
+.lp-account-select{
+  .btn{
+    background-color: @backbase-grey-light;
+    color: @backbase-brown;
+    .caret{margin-right:10px}
+  }
+
+  .btn:focus{
+    outline:0;
+    border-color:transparent;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    background-color:#dad3d0
+  }
+}
+
+// LP Transaction Widget
+#transactions-list{
+
+  .list-group-item.open,
+  .list-view-row.open .list-view-container{
+    background-color: #e2dddb;
+  }
+
+  .lp-transaction-category{
+    border: none;
+  }
+
+  .list-group-item{
+    border: 0;
+    margin-left: 11px;
+    margin-right: 20px;
+    width: auto;
+
+    .list-view-container{
+      background-color: transparent;
+      padding-right: 22px;
+      border-bottom: 2px solid #ddd;
+    }
+  }
+}
+
+.lp-search-wrapper{
+  margin-left: 6px;
+
+  .lp-search-left{
+    width: 38px;
+  }
+
+  .lp-search-middle,
+  .lp-search-tags{
+    display: block;
+  }
+
+  .lp-search-middle{
+    .form-control{
+      border: none;
+    }
+  }
+
+  .lp-search-right{
+    button{
+      font-size: 12pt;
+    }
+  }
+}
+
+// Input Groups
+.input-group{
+  .input-group-btn{
+    button{
+      height: 34px;
+    }
+  }
+}
+
+// Launcher Deck Container
+.lp-launcher-tab{
+
+  &.active{
+    background: #2d2925;
+  }
+}
+
+// Transactions List
+.lp-transactions-list-item-amount-value{
+  font-weight: bold;
+}
+
+// Profile
+.lp-profile-details{
+  .details-header{
+    background-color: #E9E7E6;
+  }
+
+  .details-inner{
+    background-color: #cccac9;
+  }
+}
+
+
+// Widget container
+.widget{
+  .widget-heading{
+    .close{
+      top: 2px;
+    }
+  }
+}
+
+// New Transfer
+.lp-new-transfer{
+
+  .widget-body{
+
+  }
+
+  .widget-footer{
+
+    .lp-icon-info-sign {
+      margin-left: 5px;
+    }
+
+  }
+}
+
+.tab-content .tab-pane{
+  .clearfix()
+}
+
+// Wizard
+.wizard-wrapper{
+
+  .wizard-step-number{
+    background-color: @btn-primary-color;
+  }
+
+  .wizard-step-number-active{
+    background-color: #777;
+    color: white;
+  }
+
+}
+
+
+.table-hover{
+  tr:focus,
+  a:focus{
+    outline: none;
+  }
+}
+
+// Simple page layout container
+.simple-page-layout{
+  .container-custom{
+    width: 300px;
+  }
+}
+
+// Content Templates
+.lp-promo-content{
+  .lp-content-text-area{
+    font-family: @font-family-sans-serif;
+  }
+}
+
+.jumbotron{
+  .btn-default{
+    color: #FFF;
+  }
+}
+
+.callout-image{
+  color: #FFF;
+}
+
+// Footer
+.lp-sitemap {
+  background-color: @brand-primary;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "widget-p2p-preferences",
+  "description": "Widget p2p preferences",
+  "version": "2.1.9",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "ui": "^2.10.1",
+    "module-accounts": "2.x",
+    "module-p2p": "^1.0.0"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28"
+  }
+}

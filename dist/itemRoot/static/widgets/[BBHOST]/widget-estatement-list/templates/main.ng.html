@@ -1,0 +1,24 @@
+<div progress-indicator="mainCtrl.initializing">
+    <div ng-show="mainCtrl.showCurrentView(mainCtrl.VIEW.MAIN)">
+        <div ng-repeat="category in mainCtrl.estatementList">
+            <div lp-template="'templates/category.ng.html'"></div>
+        </div>
+    </div>
+    <div ng-show="mainCtrl.showCurrentView(mainCtrl.VIEW.DETAIL)">
+        <div lp-template="'templates/detail.ng.html'"></div>
+    </div>
+    <div ng-show="mainCtrl.showCurrentView(mainCtrl.VIEW.NO_RESULTS)" class="no-results-wrapper">
+        <i class="fa fa-files-o big-icon"></i>
+        <p lp-i18n="This is where you access your statements. They will be available in the next billing cycle."></p>
+        <button type="button" class="btn btn-primary" lp-i18n="Reload" ng-click="mainCtrl.reload()"></button>
+    </div>
+    <div ng-show="mainCtrl.showCurrentView(mainCtrl.VIEW.ERROR)"
+         class="panel-body text-center text-muted">
+        <h3 lp-i18n="Unable to fetch data."></h3>
+        <button aria-label="Retry" class="btn btn-primary btn-sm"
+                ng-click="mainCtrl.reload()">
+            <span class="glyphicon glyphicon-refresh"></span>
+            <span lp-i18n="Retry"></span>
+        </button>
+    </div>
+</div>

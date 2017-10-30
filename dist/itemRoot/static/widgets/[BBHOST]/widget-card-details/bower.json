@@ -1,0 +1,28 @@
+{
+  "name": "widget-card-details",
+  "version": "2.1.7",
+  "main": "./scripts/main.js",
+  "description": "Widget Card Details",
+  "authors": [
+    "launchpad <dev.launchpad@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.4.0",
+    "core": "^2.9.0",
+    "ui": "^2.4.0",
+    "module-cards": "^1.0.0"
+  },
+  "devDependencies": {
+    "config": "^3.2.0",
+    "angular-mocks": "~1.2.28"
+  }
+}

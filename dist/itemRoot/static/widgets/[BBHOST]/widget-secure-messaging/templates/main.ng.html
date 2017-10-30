@@ -1,0 +1,93 @@
+<div class="lp-securemessaging">
+    <div class="lp-widget-content widget widget-default" role="application">
+        <!--  Widget Head -->
+        <div class="clearfix"></div>
+
+        <!--  Body Content -->
+        <div class="lp-widget-body widget-body">
+
+            <!-- Thread list container -->
+            <div class="no-padding tab-background" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- Curtain to hide message list when needed -->
+                <!--<div ng-class="{ 'curtain' : shared.editLetterInd }"></div>-->
+
+                <!-- Create New Message control -->
+                <div class="main-controls-container" ng-hide="shared.isInboxEmpty()">
+                    <button class="btn btn-default transparent btn-sm refresh-btn glyphicon glyphicon-refresh no-border"
+                    ng-click="loadThreads(false);"
+                    aria-label="Check for new messages">
+                </button>
+                <button name="new-message"
+                    class="btn btn-success btn-lg new-message lp-icon lp-icon-compose"
+                    ng-click="createEditLetterAction();"
+                    aria-label="Create a new message">
+                    </button>
+                </div>
+                <tabset>
+                <tab active="tabs['inbox'].active" select="tabSelected()">
+                    <tab-heading class="text-primary">Inbox
+                        <div ng-show="shared.threads.unread.length > 0" class="total-box">
+                            {{shared.threads.unread.length}}
+                        </div>
+                    </tab-heading>
+                    <!--  Alerts -->
+                    <div class="lp-alerts">
+                        <div alert="alert" class="alert alert-dismissible"
+                             ng-repeat="alert in alerts.list()"
+                             type="{{ alert.type }}"
+                             close="alerts.close()">
+                            <span lp-i18n="{{alert.msg}}"></span>
+                        </div>
+                    </div>
+                    <!-- Create/Edit Message View -->
+                    <div ng-if="shared.editLetterInd" ng-include="templatesDir + 'message-new.html'" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></div>
+                    <!-- *** Unread/Read messages list -->
+                    <message-list ng-if="shared.threads.active.length" ng-show="!shared.selectedThread" title="" items="shared.threads.active" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></message-list>
+                    <!-- *** Unread Threads *** -->
+                    <!-- <message-list title="Unread messages" items="shared.threads.unread"></message-list> -->
+                    <!-- *** Read Threads *** -->
+                    <!-- <message-list title="Read messages" items="shared.threads.read"></message-list> -->
+                    <!-- *** Draft Letters *** -->
+                    <message-list ng-if="shared.draftLetters.length" ng-show="!shared.selectedThread" title="Draft messages" items="shared.draftLetters" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></message-list>
+                    <!-- Message content view-->
+                    <!-- TODO: Consider refactoring to controller, since it's not being reused -->
+                    <div ng-if="shared.selectedThread !== null && tabs['inbox'].active">
+                        <message-content thread="shared.selectedThread" ></message-content>
+                    </div>
+                    <div ng-include="templatesDir + 'message-none.html'"></div>
+                </tab>
+                <tab heading="Sent" class="text-primary" active="tabs['sent'].active" select="tabSelected()">
+                    <!-- *** Sent Threads *** -->
+                    <message-list ng-if="shared.threads.sent.length" ng-show="!shared.selectedThread" title="" items="shared.threads.sent"></message-list>
+                    <div ng-if="shared.selectedThread !== null && tabs['sent'].active">
+                        <message-content thread="shared.selectedThread" ></message-content>
+                    </div>
+                    <div ng-include="templatesDir + 'message-none.html'"></div>
+                </tab>
+                <tab heading="Archive" class="text-primary" active="tabs['archive'].active" select="tabSelected()">
+                    <!-- *** Archived Threads *** -->
+                    <message-list ng-if="shared.threads.archived.length" ng-show="!shared.selectedThread" title="" items="shared.threads.archived"></message-list>
+                    <div ng-if="shared.selectedThread !== null && tabs['archive'].active">
+                        <message-content thread="shared.selectedThread" ></message-content>
+                    </div>
+                    <div ng-include="templatesDir + 'message-none.html'"></div>
+                </tab>
+                </tabset>
+            </div>
+
+        </div>
+    </div>
+    <div modal-dialog="Message Center found a Draft Message" show="modalShown" closable="true" isIce="false">
+        <div class="modal-header">
+            <i class="lp-icon lp-icon-cross pull-right close" ng-click="closeModal()"></i>
+            <h4><i class="lp-icon lp-icon-secure-messaging"></i> <span lp-i18n="Message Center found a Draft Message."></span></h4>
+        </div>
+        <div class="modal-body">
+            You have an unsent draft in the message center. Do you wish to restore it and continue writing on it, or can we delete it?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default btn-danger btn-md" type="button" ng-click="deleteDraft(shared.draftLetters[0])" lp-i18n="Delete Draft"></button>
+            <button class="btn btn-default btn-md" type="button" ng-click="selectThreadAction(shared.draftLetters[0])" lp-i18n="Restore Draft"></button>
+        </div>
+    </div>
+</div>

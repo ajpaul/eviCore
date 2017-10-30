@@ -1,0 +1,28 @@
+{
+  "name": "widget-secure-messaging",
+  "version": "3.0.3",
+  "main": "./scripts/main.js",
+  "homepage": "http://stash.backbase.com:7990/projects/lpw/repos/widget-secure-messaging/browse",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": ">=2 <4",
+    "core": "2.x",
+    "ui": ">=2 <4",
+    "theme-retail": "^1.0.0",
+    "module-users": "2.x",
+    "hammerjs": "~2.0.4",
+    "mock": "~1.0.8"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28"
+  }
+}

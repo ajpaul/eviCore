@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <title>Breadcrumb Widget</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="author" content="Backbase"/>
+        <meta name="keywords" content="gadget"/>
+        <meta name="description" content="Displays the hierarchical location of a page within the navigation tree of the portal as links."/>
+
+        <g:preferences>
+            <g:preference name="navStartResolver" label="Breadcrumb Type" type="select-one" default="relativeContextual">
+                <g:enumeration label="Relative" value="relativeContextual"/>
+                <g:enumeration label="Absolute" value="fixedContextual"/>
+            </g:preference>
+            <g:preference name="distance" label="Number of levels up to include" type="select-one" default="-1">
+                <g:enumeration label="All" value="-1"/>
+                <g:enumeration label="1 level" value="1"/>
+                <g:enumeration label="2 levels" value="2"/>
+                <g:enumeration label="3 levels" value="3"/>
+                <g:enumeration label="4 levels" value="4"/>
+                <g:enumeration label="5 levels" value="5"/>
+                <g:enumeration label="6 levels" value="6"/>
+                <g:enumeration label="7 levels" value="7"/>
+                <g:enumeration label="8 levels" value="8"/>
+                <g:enumeration label="9 levels" value="9"/>
+                <g:enumeration label="10 levels" value="10"/>
+            </g:preference>
+            <g:preference name="rootLevel" label="Start At" type="select-one" default="0">
+                <g:enumeration label="Top level" value="0"/>
+                <g:enumeration label="1 level" value="1"/>
+                <g:enumeration label="2 levels" value="2"/>
+                <g:enumeration label="3 levels" value="3"/>
+                <g:enumeration label="4 levels" value="4"/>
+                <g:enumeration label="5 levels" value="5"/>
+                <g:enumeration label="6 levels" value="6"/>
+                <g:enumeration label="7 levels" value="7"/>
+                <g:enumeration label="8 levels" value="8"/>
+                <g:enumeration label="9 levels" value="9"/>
+                <g:enumeration label="10 levels" value="10"/>
+            </g:preference>
+        </g:preferences>
+
+        <link rel="stylesheet" type="text/css" href="css/breadcrumb.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+        <script type="text/javascript" src="js/breadcrumb.js"></script>
+    </head>
+    <body g:onload="b$.universal.widgets.BreadcrumbWidget.start(__WIDGET__)">
+        <g:model objectType="link" renderer="breadcrumbNav">
+            <g:param name="navStartResolver" value="${navStartResolver}"/>
+            <g:param name="rootLevel" value="${rootLevel}"/>
+            <g:param name="distance" value="${distance}"/>
+            <g:param name="includeCurrentLink" value="${includeCurrentLink}"/>
+            <g:param name="contextualNavigation" value="true"/>
+            <g:param name="useGeneratedUrl" value="false"/>
+            <g:template value="${template}"/>
+        </g:model>
+    </body>
+</html>

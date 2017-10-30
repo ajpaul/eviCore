@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <container>
+        <name>container-second</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">templateSecond</value>
+            </property>
+            <property name="viewNamespace">
+                <value type="string">templates_templateSecond</value>
+            </property>
+            <property name="title" label="Title" viewHint="admin,designModeOnly">
+                <value type="string">second test container</value>
+            </property>
+            <property name="config">
+                <value type="string">$(itemRoot)/config.xml</value>
+            </property>
+            <property name="csr">
+              <value type="boolean">false</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(itemRoot)/media/icon.png</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">second</tag>
+            <tag type="regular">container</tag>
+        </tags>
+    </container>
+</catalog>

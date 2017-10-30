@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+	<link rel="stylesheet" href="styles/base.css" type="text/css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/ui/dist/styles/base.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script>
+		window.launchpad = window.launchpad || {
+					config: {
+						path: 'bower_components'
+					},
+					i18n: {
+						mergedFiles: true,
+						path: 'bower_components/config/i18n'
+					}
+				};
+	</script>
+	<script src="bower_components/config/requirejs.conf.js"></script>
+
+	<script>
+		require(['base', 'mock'], function (base, mock) {
+			window.b$ = {
+				portal: mock.Portal({})
+			};
+			window.bd = mock.Bd({});
+
+			var __WIDGET__ = {
+				body: document.body,
+				addEventListener: function () {
+				},
+				getPreference: function (name) {
+					switch(name){
+						case 'accountsDataSrc':
+							return '/api/v1/debit-accounts';
+						case 'p2pEnrollmentEndpoint':
+							return '/api/v1/p2p-enrollment';
+						case 'paymentOrdersDataSrc':
+							return '/api/v1/payment-orders/:accountIds/:paymentId/:action';
+						case 'paymentOrdersSubmitPoint':
+							return '/api/v1/payment-orders/$(orderId)';
+						case 'pendingPaymentOrdersDataSrc':
+							return '/api/v1/payment-orders';
+						case 'hideFooter':
+							return 'false';
+						default:
+							return ''
+					}
+				},
+				getPreferenceFromParents: function() { return null; }
+			};
+			base.requireWidget(__WIDGET__ , 'scripts/main');
+		});
+	</script>
+</head>
+
+<body ng-controller="MainCtrl as mainCtrl" class="lp-review-transfers-widget">
+	<lp-template src="'templates/review-transfers.ng.html'"></lp-template>
+</body>
+</html>

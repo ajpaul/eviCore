@@ -1,0 +1,22 @@
+<div class="category-detail">
+    <div class="category-detail-title">
+        <div class="category-detail-title-wrapper">
+            <span lp-i18n="CATEGORY_NAME for USER_NAME" translate-values="{categoryName:mainCtrl.categoryStatements.name,userName:mainCtrl.userName}"></span>,
+            <button
+                type="button"
+                class="btn btn-link"
+                ng-click="mainCtrl.setCurrentView(mainCtrl.VIEW.MAIN)"
+                lp-i18n="click here to return and view all statements">
+            </button>
+        </div>
+    </div>
+    <div class="category-detail-body"
+        lp-infinite-scroll="mainCtrl.loadMoreDocuments()"
+        lp-infinite-scroll-end="mainCtrl.stopLoadingDocs">
+        <ul>
+            <li ng-repeat="document in mainCtrl.docs">
+                <div lp-template="'templates/document.ng.html'"></div>
+            </li>
+        </ul>
+    </div>
+</div>

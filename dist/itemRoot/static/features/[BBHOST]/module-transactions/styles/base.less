@@ -1,0 +1,444 @@
+.lp-transactions-list-authorizations {
+  .lp-auth-header {
+    padding-left: 15px;
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+  .centered {
+    div {
+      line-height: 1.5;
+    }
+  }
+}
+
+/**
+ * Component Transactions Charts
+ */
+.lp-chart-balances,
+.lp-chart-turnovers {
+  height: 260px;
+}
+
+.chart-progress-indicator {
+  .panel {
+    border: 0;
+  }
+}
+
+.chart-empty-data {
+  text-align: center;
+  padding: 80px 0;
+}
+
+/**
+ * Component Transactions Search
+ */
+.lp-search-right {
+  .input-group-btn {
+    width: 170px;
+    &>button>span {
+        &:before {
+          font-family: 'Backbase-Neue';
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\e603";
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          margin-top: -0.5em;
+        }
+        font-size: 0.857em;
+        width: 100%;
+        min-width: 25px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1em;
+    }
+    &.open>button>span:before {
+      content: "\e604";
+    }
+
+    .dropdown-toggle {
+      i {
+        display: none;
+      }
+      .option-icon {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  .dropdown .dropdown-menu {
+    margin-top: 4px;
+    right: 0;
+    border: 1px solid #ddd;
+
+    &>li {
+      &:first-child {
+        border-top: none;
+      }
+
+      &>a {
+        padding: 20px;
+
+        i {
+          font-size: 1.2em;
+        }
+
+        .option-label {
+          font-size: 1em;
+          padding: 0 36px 0 18px;
+        }
+
+        &>span>i.lp-icon-checkmark_fat {
+          visibility: hidden;
+          position: absolute;
+          top: 22px;
+          right: 20px;
+        }
+      }
+
+      &.active>a>span>i.lp-icon-checkmark_fat {
+        visibility: visible;
+      }
+
+      &.active>a>span>i.option-icon {
+        color: currentColor;
+      }
+    }
+  }
+}
+
+.lp-medium-size, .lp-small-size {
+  .lp-search-tags > input {
+    height: 47px;
+  }
+  .lp-search-right {
+    .input-group-btn {
+      width: 60px;
+      button {
+        .option-label {
+          display: none;
+        }
+        .option-icon {
+          font-size: 1.8em;
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ *
+ * Transactions Export button
+ *
+ */
+@modal-color: #d67500;
+@text-padding: 15px;
+
+
+.lp-transactions-export-btn {
+  text-align: center;
+
+  button {
+    // height: 36px;
+    >span {
+      padding-left: 5px;
+    }
+  }
+}
+
+
+.lp-medium-size, .lp-small-size {
+  .lp-transactions-export-btn {
+    button {
+      >span {
+        display: none;
+      }
+    }
+  }
+}
+
+.export-transactions-modal {
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .panel-body {
+        padding: 0;
+    }
+
+    .modal-header {
+        color: #fff;
+        background-color: @modal-color;
+        margin: 0;
+        padding: @text-padding 20px;
+        text-transform: uppercase;
+    }
+    .modal-body {
+        padding: 0 20px;
+        margin: 20px 0;
+        text-align: center;
+        ul {
+          list-style-type: none;
+          text-align: left;
+          margin: 40px 15%;
+          padding: 0;
+        }
+    }
+
+    .modal-footer {
+        margin: 40px 0 20px 0;
+        padding: 0 20px;
+        text-align: center;
+        button.btn-primary {
+            border: 0 none;
+            color: #fff;
+            background-color: @modal-color;
+            padding-left: 30px;
+            padding-right: 30px;
+            &[disabled] {
+                background-color: #878787;
+            }
+        }
+        i {
+            color: @modal-color;
+        }
+        p {
+            margin-top: 20px;
+        }
+    }
+}
+////////////////////////////////////////
+
+
+/**
+ * Component Transactions List
+ */
+
+.lp-transactions-list {
+  min-height: 248px;
+}
+
+.transaction-details {
+    .transaction-details-navbar {
+        .tab-content {
+            background-color: transparent;
+            padding: 0 19px 14px 19px;
+
+            .lp-category-select {
+                margin-top: 14px;
+            }
+
+            .lp-transaction-details {
+                .progress-indicator {
+                    border: 0 none;
+                }
+
+                .row {
+                    & > div {
+                        margin-top: 14px;
+                        text-align: left;
+                        padding-right: 10px;
+                        .transaction-detail-label {
+                            line-height: 1em;
+                            margin-bottom: 10px;
+                            font-weight: bold;
+                        }
+                        .transaction-detail-map {
+                            width: 100%;
+                            height: 90px;
+                            max-width: 160px;
+                        }
+                    }
+
+                    &.transaction-detail-reference {
+                        margin-top: 23px;
+                        .transaction-detail-value {
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.lp-transactions-list-category {
+    max-width: 150px;
+    &.lp-transactions-list-category-noanim {
+        -webkit-transition: none;
+        transition: none;
+    }
+}
+
+/** Item head */
+.lp-transactions-list-item {
+    .lp-transactions-list-item-head {
+        display: block;
+        padding-left: 9px;
+        white-space: nowrap;
+        -webkit-transition: padding-left .4s ease;
+        -moz-transition: padding-left .4s ease;
+        -o-transition: padding-left .4s ease;
+        transition: padding-left .4s ease;
+    }
+}
+
+
+.lp-transactions-list-item-head-noanim {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.preview-all .lp-transactions-list-item-head,
+.preview.lp-transactions-list-item-head {
+  padding-left: 160px;
+}
+
+/** Columns */
+.lp-transactions-list .column {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-transition: padding .4s ease, width .4s ease;
+  -moz-transition: padding .4s ease, width .4s ease;
+  -o-transition: padding .4s ease, width .4s ease;
+  transition: padding .4s ease, width .4s ease;
+}
+
+.lp-transactions-list-large .column {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/** Item category */
+.lp-transactions-list {
+    .lp-transactions-list-item-head {
+        .lp-transactions-list-item-category {
+            display: block;
+        }
+    }
+
+}
+
+
+.lp-transactions-list-item-content {
+  height: 55px;
+  position: relative;
+  width: 100%;
+}
+
+/** Date */
+.lp-transactions-list-item-date {
+  width: 16.66666667%;
+}
+
+.lp-transactions-list-large .lp-transactions-list-item-date {
+  width: 8.33333333%;
+}
+
+.lp-transactions-list-no-icons .lp-transactions-list-item-date {
+  width: 16.66666667%;
+}
+
+.lp-transactions-list-item-date-value {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/** Icon */
+.lp-transactions-list-item-icon {
+  width: 8.33333333%;
+}
+
+.lp-transactions-list-small .lp-transactions-list-item-icon,
+.lp-transactions-list-medium .lp-transactions-list-item-icon,
+.lp-transactions-list-no-icons .lp-transactions-list-item-icon {
+  display: none;
+}
+
+/** Summary */
+.lp-transactions-list-item-summary {
+  text-align: left;
+  width: 58.33333333%;
+}
+
+.lp-transactions-list-item-name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 3px;
+}
+
+.lp-transactions-list-item-type,
+.lp-transactions-list-item-info {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lp-transactions-list-small .lp-transactions-list-item-type,
+.lp-transactions-list-medium .lp-transactions-list-item-type {
+  display: none;
+}
+
+.lp-transactions-list-large .lp-transactions-list-item-info {
+  display: none;
+}
+
+/** Transaction amount */
+.lp-transactions-list-item-amount {
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: right;
+  white-space: nowrap;
+  width: 24.99999999%;
+}
+
+.lp-transactions-list-item-amount-value {
+  float: right;
+  font-size: 16px;
+}
+
+.lp-transactions-list-item-details {
+  height: 0;
+  overflow: hidden;
+}
+
+.lp-transactions-list-item.open .lp-transactions-list-item-details {
+  height: auto;
+}
+
+/** Category */
+.preview-all .lp-transactions-list-category {
+  width: 160px;
+}
+
+.lp-transactions-list-item-head-noanim .lp-transaction-category {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.lp-search-wrapper {
+    margin-left: 0px;
+
+    .sort-select button.dropdown-toggle .caret {
+        display: none;
+    }
+}

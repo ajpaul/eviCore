@@ -1,0 +1,44 @@
+<pre>
+{{#contentRef}}
+    INSTANCE_NAME: {{instanceName}}
+    NAME:
+    {{#name}}
+        {{name}}
+    {{/name}}
+    {{^name}}
+        NOT PROVIDED
+    {{/name}}
+
+    ADDRESSES:
+    {{#addresses}}
+            ADDRESS: <!-- #{index($address) + 1} --> <br/>
+            {{#street}}- STREET: {{street}} <br/>{{/street}}{{^street}}- STREET: NOT PROVIDED <br/>{{/street}}
+            {{#city}}- CITY: {{city}} <br/>{{/city}}{{^city}}- CITY: NOT PROVIDED <br/>{{/city}}
+            {{#postcode}}- POSTCODE: {{postcode}} <br/>{{/postcode}}{{^postcode}}- POSTCODE: NOT PROVIDED <br/>{{/postcode}}
+    {{/addresses}}
+    {{^addresses}}
+        NOT PROVIDED
+    {{/addresses}}
+
+    DIARY_ENTRY:
+    {{#diaryEntry}}{{#html}}{{{html}}}{{/html}}{{^html}}{{{diaryEntry}}}{{/html}}{{/diaryEntry}}{{^diaryEntry}}NOT PROVIDED{{/diaryEntry}}
+
+    MOOD:
+    {{#mood}}{{mood}}{{/mood}}
+    {{^mood}}NOT PROVIDED{{/mood}}
+
+    AVATAR:
+    {{#avatar}}
+        - ALT: {{#alt}}{{alt}}{{/alt}}{{^alt}}NOT PROVIDED{{/alt}}
+        - HEIGHT: {{#height}}{{height}}{{/height}}{{^height}}NOT PROVIDED{{/height}}
+        - WIDTH: {{#width}}{{width}}{{/width}}{{^width}}NOT PROVIDED{{/width}}
+    {{/avatar}}
+    {{^avatar}}NOT PROVIDED{{/avatar}}
+
+    TAGS:
+    {{#tags}}
+        {{.}}
+    {{/tags}}
+    {{^tags}}NOT PROVIDED{{/tags}}
+{{/contentRef}}
+</pre>

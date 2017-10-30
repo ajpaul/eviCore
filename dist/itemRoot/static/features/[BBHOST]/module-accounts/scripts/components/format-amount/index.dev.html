@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>format-amount</title>
+    <!--highlight-->
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css"/>
+    <script src="bower_components/prism/prism.js"></script>
+    <!-- /highlight-->
+    <link href="bower_components/theme/themes/default/css/base.css" rel="stylesheet"/>
+    <link href="styles/base.css" rel="stylesheet"/>
+    <!-- include core -->
+     <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <!-- create the demo -->
+    <script>
+        require(['base', './scripts/main'],
+            function (base, comp) {
+            var demo = base.createModule('demo.ui.format-amount', [comp.name])
+                .controller('MainCtrl', function () {
+
+                    this.account = {
+                        'id':'4280afc5-4f7e-46c0-b0db-927138aa46c2',
+                        'currency':'EUR',
+                        'alias':'Personal Checking Account',
+                        'availableBalance':17123.36,
+                        'bookedBalance':17784.36,
+                        'accountIdentification':[
+                            {'scheme':'IBAN','id':'NL66INGB0280680457'},
+                            {'scheme':'BBAN','id':'280680457'}
+                        ],
+                        'creditLine':680,
+                        'identifier':'NL66INGB0280680457',
+                        'delta':0
+                    };
+
+                });
+            base.bootstrap(document.body, [demo.name]);
+        });
+    </script>
+</head>
+
+<body class="container" ng-controller="MainCtrl as mainCtrl">
+    <h3>Usage example</h3>
+    <pre class="language-markup"><code>
+    &lt;format-amount&gt;
+    </code></pre>
+
+    <pre class="language-javascript"><code>
+    Widget.controller('MainCtrl', function () {
+
+    });
+    </code></pre>
+
+    <div lp-format-amount="mainCtrl.account"></div>
+
+</body>
+</html>

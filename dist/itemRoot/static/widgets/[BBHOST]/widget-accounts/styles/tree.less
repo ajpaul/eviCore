@@ -1,0 +1,159 @@
+@tree-line-height: 2.5em;
+@tree-indentation: 1em;
+@line-thickness: 2px;
+
+.lp-accounts-tree {
+
+    .container {
+        width: 100%;
+        padding: 15px 15px 15px 10px;
+    }
+
+    .account-tree,
+    .account-tree ul {
+        margin: 0 0 0 @tree-indentation;
+        position: relative;
+    }
+
+    .account-tree {
+
+        ul {
+            margin-left: @tree-indentation + .5em;
+        }
+
+        &:before,
+        ul:before {
+            content: "";
+            display: block;
+            width: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            border-left-width: @line-thickness;
+            border-left-style: solid;
+        }
+
+        li {
+            margin: 0;
+            padding: 0 0 0 @tree-indentation;
+            line-height: @tree-line-height; // default list item's line-height
+            position: relative;
+
+            &:before {
+                content: "";
+                display: block;
+                width: @tree-indentation; // same with indentation
+                height: 0;
+                border-top-width: @line-thickness;
+                border-top-style: solid;
+                margin-top: -@line-thickness; // border top width
+                position: absolute;
+                top: @tree-line-height/2;
+                left: 0;
+            }
+
+            &:last-child:before {
+                height: auto;
+                top: @tree-line-height/2;
+                bottom: 0;
+            }
+        }
+
+        // Caret icons for this view, colors are inhreted from the parent container
+        .caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+
+            &.caret-down {
+                border-top-color: inherit;
+            }
+            &.caret-right {
+                border-left-color: inherit;
+            }
+        }
+
+        .title-expandable {
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .leaf {
+            position: relative;
+            padding-right: 15px;
+
+            .balance {
+                float: right;
+                text-align: right;
+                width: 60px;
+                margin-right: 10px;
+                margin-top: 1px;
+                text-transform: capitalize;
+            }
+
+            .icon {
+                margin-top: -1px;
+            }
+        }
+
+        .account-id {
+            margin-top: -10px;
+            display: block;
+        }
+        .leaf-children + .account-id {display: none;}
+
+        .total {
+            display: none;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            padding: .5em 1em;
+            margin: .8em 0;
+        }
+
+        .account-branch {
+            cursor: pointer;
+            padding: 0 .5em;
+
+            &.main {
+                padding: 0 0 0 5px;
+            }
+
+            .lp-icon-angle-right {
+                position: absolute;
+                top: 5px;
+                right: -7px;
+                font-size: 20px;
+            }
+        }
+
+        .account-branch + .list-open + .total {
+            display: block;
+        }
+        
+    }
+
+
+    // Responsive classes
+    .lp-responsive {
+        display: none;
+    }
+    .lp-small-size {
+        .lp-small-show {
+            display: block;
+        }
+    }
+    .lp-normal-size {
+        .lp-normal-show {
+            display: block;
+        }
+    }
+    .lp-large-size {
+        .lp-large-show {
+            display: block;
+        }
+    }
+
+
+}

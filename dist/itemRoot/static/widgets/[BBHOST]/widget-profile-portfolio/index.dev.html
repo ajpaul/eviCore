@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <link href="/bower_components/theme-retail/dist/styles/base.css" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="dist/styles/base.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="/bower_components/config/requirejs.conf.js"></script>
+    <script>
+    require(['base', 'mock'], function (base, mock) {
+        window.b$ = { portal: mock.Portal() };
+        window.bd = mock.Bd({});
+        window.gadgets = mock.gadgets;
+        window.launchpad = mock.launchpad;
+        mock.Widget()
+            .then(function(__WIDGET__) {
+                base.requireWidget(__WIDGET__, 'scripts/main');
+            });
+    });
+    </script>
+
+</head>
+
+<body class="ng-cloak lp-profile-portfolio" >
+    <div lp-template="'templates/main.ng.html'"></div>
+</body>
+</html>

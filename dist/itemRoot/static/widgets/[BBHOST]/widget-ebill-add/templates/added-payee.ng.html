@@ -1,0 +1,32 @@
+<div ng-controller="PayeeAddedCtrl as addedCtrl">
+    <div class="col-xs-2 payee-add-successful">
+        <span class="glyphicon glyphicon-ok"></span>
+    </div>
+    <div class="col-xs-10 col-sm-10">
+        <div class="panel-title clearfix">
+            <strong>{{mainCtrl.bpModel.currentBiller.name}}</strong> {{ 'has been added' | translate }}.
+        </div>
+        <p>
+            {{ 'Your payee will be displayed as' | translate }} {{mainCtrl.bpModel.currentBiller.name}} {{ 'in your payee list.' | translate }}
+        </p>
+        <p ng-if="!mainCtrl.bpModel.currentBiller.ebillEligible" class="text-danger">
+            {{ 'Payee is not eligible for e-bills.' | translate }}
+        </p>
+        <p ng-if="addedCtrl.eBillsEnabled()" class="text-success">
+            <strong>{{ 'You have e-bills enabled for this payee.' | translate }}</strong>
+        </p>
+        <p ng-if="mainCtrl.bpModel.currentBiller.ebillEligible && !addedCtrl.eBillsEnabled()" class="text-warning">
+            {{ 'Payee is eligible for e-bills, you can set it up later.' | translate }}
+        </p>
+    </div>
+    <div class="col-xs-offset-2 col-xs-10">
+        <button type="button"
+                ng-click="addedCtrl.createPayment()"
+                class="btn btn-primary" lp-i18n="Make a Payment">
+        </button>
+        <button type="button"
+                ng-click="addedCtrl.addNewPayee()"
+                class="btn btn-link" lp-i18n="Add another payee">
+        </button>
+    </div>
+</div>

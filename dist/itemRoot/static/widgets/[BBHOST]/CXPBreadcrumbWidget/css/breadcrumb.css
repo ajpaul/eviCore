@@ -1,0 +1,48 @@
+.bd-breadcrumb ul, .bd-breadcrumb li {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+.bd-breadcrumb {
+    height:2em;
+    border:1px solid #dedede;
+    margin:0;
+    font-size:.9em
+}
+.bd-breadcrumb li {
+    float:left;
+    line-height:2em;
+    color:#777;
+    padding-left:.75em;
+}
+.bd-breadcrumb li a {
+    background:url(../../media/crumbs.gif) no-repeat right center;
+    display:block;
+    padding:0 15px 0 0;
+    outline:none;
+}
+.bd-breadcrumb li a:link,
+.bd-breadcrumb li a:visited {
+    color:#777;
+    text-decoration:none;
+}
+.bd-breadcrumb a:link, .bd-breadcrumb a:visited,
+.bd-breadcrumb li a:hover,
+.bd-breadcrumb li a:focus {
+    color:#333;
+}
+
+.bd-breadcrumb-distance-error {
+    border-color: #ff0000;
+}
+
+.bd-breadcrumb-distance-error:focus {
+    border-color: #CCC;
+}
+
+.bd-breadcrumb-save-button-disabled {
+    opacity: 0.6;
+}
+.bd-breadcumb-preference-form .breadcrumb-hidden-pref {
+    display: none;
+}

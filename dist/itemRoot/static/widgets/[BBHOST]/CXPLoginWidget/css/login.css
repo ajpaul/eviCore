@@ -1,0 +1,15 @@
+.cxp-universal-login.cloak {
+    display: none;
+}
+
+.cxp-universal-login.logged-out .logout {
+    display: none;
+}
+
+.cxp-universal-login.logged-in .login {
+    display: none;
+}
+
+.bc-select-open .bc-select--dropdown {
+	z-index: 1000;
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Steps Indicator Component",
+  "custom": {
+    "bowerRoute": "../../../"
+  },
+  "tag": [
+    "launchpad-feature"
+  ]
+}

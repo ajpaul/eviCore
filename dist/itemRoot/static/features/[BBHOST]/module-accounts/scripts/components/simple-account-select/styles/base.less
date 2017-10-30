@@ -1,0 +1,194 @@
+@default-bgr: #ffffff;
+@placeholder: #999;
+@border-radius: 4px;
+
+.lp-simple-account-select {
+    .select,
+    .select-list {
+        position: relative;
+        -webkit-touch-callout: none;
+        user-select: none;
+    }
+
+    /** Button */
+    .select-button {
+        border: 1px solid;
+        border-radius: @border-radius;
+        background-color: inherit;
+        cursor: pointer;
+        display: block;
+        outline: none;
+        padding: 1em 15px;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        -webkit-touch-callout: none;
+    }
+
+    .select-button:active {
+        background-color: inherit;
+    }
+
+    .select-button-label {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .select-button-placeholder {
+        color: @placeholder;
+    }
+
+    .select-button-value {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /** List */
+    .select-list {
+        background-color: @default-bgr;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px -1px rgba(0,0,0, 0.5);
+        overflow: hidden;
+    }
+
+    .select-list-item {
+        border-top: 1px solid;
+        cursor: pointer;
+        outline: none;
+        padding: 10px 20px;
+    }
+
+    .select-list-item:first-child {
+        border-top: none;
+    }
+
+    .select-list-item:active {
+        background-color: darken(@default-bgr, 5%);
+    }
+
+    .list-heading {
+        cursor: default;
+    }
+
+    /* ================================
+     * Desktop only
+     * ================================ */
+
+    .desktop {
+        .select-list {
+            border: 1px solid rgba(0,0,0, 0.35);
+            border-top: none;
+            border-radius: 0 0 3px 3px;
+            box-shadow: 0 1px 3px -2px rgba(0,0,0, 0.5);
+            left: 0;
+            margin-top: 1px;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 1;
+        }
+
+        .dropdown-list {
+            border: 1px solid rgba(0,0,0, 0.35);
+            border-radius: @border-radius;
+            box-shadow: 0 1px 3px -2px rgba(0,0,0, 0.5);
+            margin-top: 0;
+            position: absolute;
+            top: 100%;
+            z-index: 1;
+        }
+
+        .select-button {
+            .lp-icon {
+                margin: 4px 0;
+                &.lp-icon-spinner2 {
+                    margin: 3px 0;
+                }
+            }
+        }
+
+        .account-select-button-value {
+            position: absolute;
+            bottom: 8px;
+        }
+
+        //label animation
+        .select-button-label {
+            &.upper-label {
+                position: absolute;
+                margin-top: -6px;
+                transition: margin-top 0.2s ease-out;
+                font-size: 12px;
+            }
+        }
+
+        .account-balance {
+            padding-right: 45px;
+        }
+
+        .select-list-item {
+            .account-balance {
+                padding-right: inherit;
+            }
+        }
+
+        .truncate {
+            max-width: 45%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        // Spinner animation
+        .glyphicon-refresh-animate {
+          animation: spin .7s infinite linear;
+          -webkit-animation: spin2 .7s infinite linear;
+        }
+
+        @-webkit-keyframes spin2 {
+          from { -webkit-transform: rotate(0deg);}
+          to { -webkit-transform: rotate(360deg);}
+        }
+
+        @keyframes spin {
+          from { transform: scale(1) rotate(0deg);}
+          to { transform: scale(1) rotate(360deg);}
+        }
+    }
+}
+
+/* ================================
+ * Mobile app only
+ * ================================ */
+
+.mobile-app {
+    .select-list {
+        margin: 10px;
+        display: block;
+    }
+    .lp-icon {
+        display: none;
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    .mobile-app .select-list-item {
+        border-top-width: 0.5px;
+    }
+}
+
+.lp-panel-item .select-button {
+    border: none;
+}

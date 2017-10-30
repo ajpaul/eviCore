@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <title>Places Widget</title>
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/theme/themes/default/css/base.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="/bower_components/config/requirejs.conf.js"></script>
+    <script>
+         require(['base', 'mock'], function (base, mock) {
+             window.b$ = { portal: mock.Portal() };
+             window.bd = mock.Bd();
+             window.launchpad = mock.launchpad;
+             window.launchpad.i18n = {
+                 path: 'bower_components/config-us/i18n',
+                 mergedFiles: true
+             };
+             window.gadgets = mock.gadgets;
+
+             mock.Widget({
+                 model: './model.xml',
+                 view: document.body,
+                 preferences: {
+                     // Override preferences from model.xml
+                     src: './index.dev.html',
+                     filterDataSrc: '/v1/places/options',
+                     placesDataSrc: '/v1/places'
+                 }
+             }).then(function(__WIDGET__) {
+                 base.requireWidget(__WIDGET__, 'scripts/main');
+             });
+         });
+    </script>
+</head>
+<body class="lp-places">
+
+    <lp-template src="'templates/main.ng.html'"></lp-template>
+
+</body>
+</html>

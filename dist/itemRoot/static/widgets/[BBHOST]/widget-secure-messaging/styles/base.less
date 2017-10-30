@@ -1,0 +1,360 @@
+@horizontal-space: 10px;
+@border-radius-small: 4px;
+@border-radius-medium: 10px;
+
+.lp-securemessaging {
+    padding-top: 11px;
+
+    .main-controls-container {
+        position: absolute;
+        right: 10px;
+        top: 6px;
+        z-index: 2;
+    }
+
+    .message-title-container { /* Aligns both message list & message view header height */
+        min-height: 60px;
+    }
+
+    .ellipsis { /* Long message subject truncate */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .unread {
+        .unread-indicator {
+            display: block;
+        }
+    }
+
+    .message {
+        display: block;
+        padding: 8px;
+
+        .message-list-controls {
+            width: 140px;
+            -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 22px;
+            border-radius: @border-radius-small;
+        }
+
+        .message-list-controls button {
+            width: 100%;
+            text-align: left;
+        }
+
+        .button-container .btn {
+            box-shadow: none;
+            text-decoration: none;
+        }
+    }
+
+    .message.swipe-on .message-list-controls {
+        pointer-events: auto;
+        width: 130px;
+        -webkit-transition-delay: 500ms;
+        transition-delay: 500ms;
+    }
+
+    .collapsed {
+        height: 90px;
+        -webkit-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+    }
+
+    .expanded {
+        height: auto;
+        overflow: auto;
+        -webkit-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+
+        .message-content.ellipsis { //remove ellipsis for body text
+            text-overflow: inherit;
+            overflow: auto;
+            white-space: inherit;
+        }
+    }
+
+    .selected {
+
+        &:after { /* This shows grey triangle on selected message */
+            z-index: 0;
+            position: absolute;
+            top: 50%;
+            right: -5px;
+            margin-top: -5px;
+            content: '';
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .curtain {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0.8;
+    }
+
+    .info {
+        .logo {
+            position: relative;
+            text-align: center;
+            padding-right: @horizontal-space;
+            padding-top: 6px;
+            min-width: 70px;
+        }
+
+        .subject { /* Subject field style, so that ellipsis would not overlap date info */
+            border-radius: 10px;
+            max-width: 90%;
+            left: -8px;
+            padding: 1px 8px;
+            position: relative;
+        }
+    }
+
+    .message-header {
+        padding-bottom: 8px;
+    }
+
+    .message-content {
+        padding: 0 0 6px 70px;
+        margin-top: 8px;
+        position: relative;
+    }
+
+    .message-footer {
+        padding: 10px;
+    }
+
+    .message-date {
+        line-height: 18px;
+
+        .lp-icon {
+            margin-left: 12px;
+        }
+    }
+
+    .message-view-header {
+        height: 55px;
+        position: relative;
+    }
+
+    .message-review-padding {
+        padding: 10px 0;
+    }
+
+    .message-review-content {
+        white-space: pre-line;
+    }
+
+    .message-reply-text {
+        resize: none;
+        height: 100px;
+        width: 100%;
+    }
+
+    .message-reply-control-container {
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+    .new-message {
+        position: relative;
+        border-radius: 50%;
+        padding: 10px 12px;
+        top: -6px;
+    }
+    .new-message-content {
+        padding: 10px;
+    }
+    .new-message-text-container {
+        padding: 8px;
+        background: url('../media/message_divider.png') no-repeat center 108px;
+        border-radius: @border-radius-small;
+        .message-reply-control-container {
+            padding: 0;
+        }
+        textarea {
+            padding: 10px;
+            height: 100px;
+            resize: none;
+            box-shadow: none;
+        }
+    }
+
+    .refresh-btn {
+        margin-bottom: 5px;
+        box-shadow: none;
+    }
+
+    // Possibly should be included in the theme later
+    .circle-crop {
+        border-radius: 50%;
+    }
+
+    .btn-default {
+        &.btn-md {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        &.transparent {
+            background: none;
+        }
+    }
+
+    .tab-content > .tab-pane.active {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    .list-group {
+        margin: .6em 9px;
+        padding-bottom: 7px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .list-group-item {
+        overflow: hidden;
+    }
+
+    .list-group-item:first-child {
+        border-top-left-radius: @border-radius-small;
+        border-top-right-radius: @border-radius-small;
+    }
+
+    .nav-tabs > li > a {
+        border: 0;
+        border-top-left-radius: @border-radius-small;
+        border-top-right-radius: @border-radius-small;
+        text-transform: uppercase;
+        padding: 12px 15px;
+    }
+
+    .nav-tabs > li:first-child a {
+        margin-left: 8px;
+    }
+
+    .nav-tabs > li.active > a {
+        border-bottom: 0;
+    }
+
+    //modal window
+    .ng-modal-overlay {
+        position: fixed;
+        opacity: 0.5;
+    }
+
+    .modal-dialog {
+        width: 75%;
+    }
+
+    .modal-content {
+        border-radius: @border-radius-small;
+        border: none;
+        padding: 10px 12px;
+    }
+
+    .unread-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: none;
+        margin: 17px 3px;
+    }
+
+    .no-border {
+        border: none;
+        box-shadow: none;
+    }
+
+    .reply-message-container {
+        padding: 8px;
+        background: url('../media/message_divider.png') no-repeat center 125px;
+
+        textarea {
+            border: 0;
+            box-shadow: none;
+        }
+
+        .message-reply-error {
+            margin-top: 15px;
+        }
+    }
+
+    .context-menu-icon {
+        line-height: 18px;
+    }
+
+    .category-label {
+        text-transform: uppercase;
+        margin: 0 5px;
+        padding: 1px 10px;
+        vertical-align: middle;
+        border-radius: @border-radius-medium;
+    }
+
+    .total-box {
+        width: 31px;
+        height: 18px;
+        text-align: center;
+        border-radius: 20px;
+        padding-top: 2px;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    .btn-cancel {
+        float: left;
+    }
+
+    .btn-savereply {
+        float: left;
+    }
+
+    .btn-saving {
+        font-style: italic;
+    }
+
+    .btn-send {
+        float: right;
+    }
+
+    .btn-reply {
+        float: right;
+        margin-right: 5px;
+    }
+
+    .btn-mobile-back {
+        margin-right: 10px;
+    }
+
+    .alert {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        z-index: 100;
+        margin-top: 10px;
+    }
+
+    .widget-heading {
+        border-bottom: 0;
+    }
+
+    .message-review-container {
+        z-index: 100;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "widget-p2p-enrollment",
+  "description": "Widget p2p enrollment",
+  "version": "2.2.5",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.9.0",
+    "core": "^2.12.4",
+    "ui": "^2.10.1",
+    "module-users": "^2.5.1",
+    "module-accounts": "^2.5.2",
+    "module-p2p": "^1.0.0"
+  },
+  "devDependencies": {
+    "config": "^3.2.5",
+    "angular-mocks": "~1.2.28"
+  }
+}

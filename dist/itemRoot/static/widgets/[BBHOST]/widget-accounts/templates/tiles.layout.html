@@ -1,0 +1,57 @@
+<div class="lp-accounts-tiles ng-cloak" ng-init="controller = mainCtrl">
+
+    <!-- Alerts -->
+    <div lp-template="'templates/alerts.html'"></div>
+
+    <!-- Columns of items -->
+    <div class="container" ng-class="responsiveClass">
+        <ul class="accounts">
+            <li class="account-block clearfix" ng-repeat="account in controller.model.assetCollectionFlat">
+                <div class="group-header" ng-if="controller.preferences.showGroups && account.groupTitle">
+                    {{ account.groupTitle }}
+                    <div class="group-total"
+                         ng-if="controller.preferences.showTotals"
+                         ng-init="groupTotal = controller.getGroupTotal({accounts: controller.model.assetCollectionFlat.slice($index, $index + account.groupAccountsCount)}, controller.preferences.defaultBalanceMapped);">
+                        <span class="total">Total</span>
+                        <span lp-amount="groupTotal.totalBalance" lp-amount-currency="groupTotal.currency"></span>
+                    </div>
+                </div>
+                <div class="content cursor-pointer" tabindex="0"
+                     on-select="controller.selectAccount(account, account.code)"
+                     ng-class="account.code"
+                     ng-include="'item-' + account.code">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<!-- Current account item -->
+<script type="text/ng-template" id="item-current-account">
+    <div class="alias">{{ account.alias }}</div>
+    <div class="account-id">{{ account.accountIdentification[0].id }}</div>
+    <div class="balance">
+        <div class="h2" lp-amount="account[controller.preferences.defaultBalanceMapped + 'Balance']" lp-amount-currency="account.currency"></div>
+        <div class="amount" ng-init="balance = controller.preferences.defaultBalanceMapped == 'booked' ? 'available' : 'booked'">
+            {{ balance }}:
+            <span lp-amount="account[balance + 'Balance']" lp-amount-currency="account.currency"></span>
+        </div>
+    </div>
+</script>
+
+<!-- Card item -->
+<script type="text/ng-template" id="item-card">
+    <div class="info alias">{{ account.alias }}</div>
+    <div class="info account-id">{{ account.cardNumber }}</div>
+    <div class="info balance">
+        <div class="h2" lp-amount="account[controller.preferences.defaultBalanceMapped + 'Balance']" lp-amount-currency="account.currency"></div>
+        <div class="amount" ng-init="balance = controller.preferences.defaultBalanceMapped == 'booked' ? 'available' : 'booked'">
+            {{ balance }}:
+            <span lp-amount="account[balance + 'Balance']" lp-amount-currency="account.currency"></span>
+        </div>
+    </div>
+    <div class="background" ng-style="{'background-color': account.iconColor}"></div>
+    <div class="background other" ng-class="account.brand.toLowerCase()"></div>
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <title>[DEV] widget-transactions</title>
+    <link rel="stylesheet" href="./bower_components/theme-retail/dist/styles/base.css" type="text/css" />
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <script>
+        require(['base', 'mock'], function (base, mock) {
+            window.launchpad = window.launchpad || {};
+
+            // Working with LP i18n
+            window.launchpad.i18n = {
+                path: '/bower_components/config/i18n',
+                mergedFiles: true
+            };
+
+            window.b$ = { portal: mock.Portal({ }) };
+            window.bd = mock.Bd({});
+            mock.Widget({ // Returns Promise.
+                model: './model.xml',
+                view: document.body,
+                preferences: {
+                    // Override preferences from model.xml
+                    'src': './index.dev.html',
+                    'accountsTopBalance': 'current',
+                    'categoryDataSrc': '/api/v1/pfm/transaction-categories',
+                    'accountsDataSrc': '/api/v1/debit-accounts',
+                    'transactionsDataSrc': '/api/v1/current-accounts/$(accountId)/transactions',
+                    'transactionDetailsDataSrc': '/api/v1/current-accounts/transaction/$(transactionId)/details',
+                    'messageSrc': '/static/launchpad/conf/messages.json',
+                    'contactsDataSrc': '/api/v1/counterparties',
+                    'accountBalanceChartDataSrc': '/api/v1/current-accounts/$(accountId)/balance',
+                    'transactionsChartDataSrc': '/api/v1/current-accounts/$(accountId)/turnover',
+                    'categorySpendingDataSrc': '/api/v1/current-accounts/spendings',
+                    'categoriesDataSrc': '/api/v1/pfm/transaction-categories',
+                    'preferenceService': '/api/v1/party-data-management/preferences',
+                    'accountHolds': '/api/v1/account-holds?accountIds=$(accountIds)',
+                    'transactionsPageSize': 20,
+                    'showAccountSelect': 'true',
+                    'showCharts': 'true',
+                    'hideFooter': 'false',
+                    'showTransactionIcons': 'true',
+                    'showDatesAllTransactions': 'true',
+                    'hideDetailsPreference': 'false',
+                    'showScrollbar': 'false',
+                    'stickyHeader': 'false',
+                    'groupTransactionsByDate': 'false'
+
+                },
+            }).then(function(__WIDGET__) {
+                base.requireWidget(__WIDGET__, 'scripts/main');
+            });
+        });
+    </script>
+    <style>
+        markdown {display: none}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <markdown>
+            <% include README.md %>
+        </markdown>
+
+        <div class="source_section">
+            <h2>Usage example</h2>
+        </div>
+
+        <div class="source_example">
+            <div lp-template="'templates/main.ng.html'"></div>
+        </div>
+    </div>
+</body>
+</html>

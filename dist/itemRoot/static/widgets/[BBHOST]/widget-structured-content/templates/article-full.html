@@ -1,0 +1,40 @@
+{{#contentRef}}
+<div class="structured-content-placeholder-full-item">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="media">
+				<div class="media-with-bg">
+					<img src="{{background_image_large.path}}" alt="{{title}}" class="media-object media-bg-image"  />
+					<div class="media-content">
+						<h1>{{title}}</h1>
+						<p class="media-link-small">{{read_length}}</p>
+						<p class="media-object-text">Written by <span class="media-object-text-name">{{author.name}}</span></p>
+					</div>
+					<img src="{{author.picture.path}}" alt="{{author.name}}" class="media-object media-avatar img-circle" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				{{{body}}}
+			</div>
+
+			<div class="col-md-offset-3 col-md-6">
+				<ul>
+				{{#references}}
+					<li>
+						<a href="{{url}}">{{name}}</a>
+					</li>
+				{{/references}}
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+{{/contentRef}}

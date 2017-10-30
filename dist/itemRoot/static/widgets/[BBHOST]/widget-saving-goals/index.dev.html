@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="/bower_components/config/requirejs.conf.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/bower_components/theme/themes/default/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <script>
+        require(['base','mock'], function (base, mock) {
+
+            // mock portal & bd.
+            window.b$ = { portal: mock.Portal({ }) };
+            window.bd = mock.Bd({});
+
+            // mock widget.
+            var mockConfig = {
+                model: './model.xml',
+                view: document.body,
+                preferences: {
+                    // Override preferences from model.xml
+                    src: './index.dev.html',
+                    savingAccountsDataSrc: '/api/v1/saving-accounts',
+                    savingGoalsDataSrc: '/api/v1/pfm/saving-goals/:savingId',
+                    minMonths: 3,
+                    showAccountSelect: true,
+                    locale: 'nl-NL'
+                }
+            };
+
+            mock.Widget(mockConfig).then(function(__WIDGET__) {
+                // bootstrap widget.
+                base.requireWidget(__WIDGET__, 'scripts/main');
+            });
+        });
+    </script>
+</head>
+
+<body class="lp-saving-goals">
+    <div lp-template="'templates/main.ng.html'"></div>
+</body>
+
+</html>

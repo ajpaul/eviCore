@@ -1,0 +1,1 @@
+{"version":3,"sources":["base.less"],"names":[],"mappings":"uEAAA,mCAEI,YACA,mBACA,gBACA,sBAAA,CAAA","file":"base.css","sourcesContent":[".lp-accounts-dropdown {\n  .lp-acct-num {\n    width: 550px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n}\n"],"sourceRoot":"/source/"}

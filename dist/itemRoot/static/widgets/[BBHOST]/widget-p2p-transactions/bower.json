@@ -1,0 +1,30 @@
+{
+  "name": "widget-p2p-transactions",
+  "description": "Widget p2p transactions",
+  "version": "3.0.11",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.4.0",
+    "core": "^2.9.0",
+    "ui": "^2.4.8",
+    "module-transactions": "^3.0.0",
+    "module-p2p": "^1.0.0",
+    "module-contacts": "^1.1.0"
+  },
+  "devDependencies": {
+    "mock": "^1.0.9",
+    "config": "^3.4.0",
+    "theme-retail": "^1.0.0",
+    "angular-mocks": "~1.2.28",
+    "requirejs": "~2.1.20"
+  }
+}

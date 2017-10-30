@@ -1,0 +1,103 @@
+<div class="lp-accounts-tree ng-cloak" ng-init="controller = mainCtrl">
+
+    <!-- Alerts -->
+    <div lp-template="'templates/alerts.html'"></div>
+
+    <div class="container">
+        <ul class="account-tree" ng-class="responsiveClass">
+            <li ng-repeat="group in controller.model.assetCollection"
+                ng-if="group.accounts.length"
+                ng-include="'group-item-' + group.code + '.html'"></li>
+        </ul>
+    </div>
+
+    <!-- Current account group template -->
+    <script type="text/ng-template" id="group-item-current-account.html">
+
+        <div class="account-branch clearfix" tabindex="0" role="button"
+             ng-init="groupTotal = controller.getGroupTotal(group, controller.preferences.defaultBalanceMapped); hasChildren = group.accounts.length > 0;"
+             ng-class="{main: hasChildren}"
+             on-select="!hasChildren ? controller.selectAccount(group, 'current-account') : (group.isOpen = !group.isOpen)">
+
+            <span class="title" ng-class="group.accounts.length ? 'title-expandable' : ''">
+                <i class="caret {{ group.isOpen ? 'caret-down' : 'caret-right' }}" ng-if="hasChildren"></i>
+                {{ group.title || group.alias }}
+            </span>
+
+            <!-- Only shown for records without children -->
+            <div class="pull-right leaf" ng-if="!hasChildren">
+                <div class="pull-right" lp-amount="group[controller.preferences.defaultBalanceMapped + 'Balance']" lp-amount-currency="group.currency"></div>
+                <div class="balance lp-responsive lp-small-show">{{ controller.preferences.defaultBalanceMapped[0] }}:</div>
+                <div class="balance lp-responsive lp-normal-show">{{ controller.preferences.defaultBalanceMapped[0] }}:</div>
+                <div class="balance lp-responsive lp-large-show">{{ controller.preferences.defaultBalanceMapped }}:</div>
+                <i class="lp-icon lp-icon-angle-right"></i>
+            </div>
+
+            <!-- Shown in case if there are children -->
+            <div class="pull-right leaf leaf-children" ng-if="controller.preferences.showTotals && hasChildren && !group.isOpen">
+                <div lp-amount="groupTotal.totalBalance" lp-amount-currency="groupTotal.currency"></div>
+            </div>
+
+            <!-- Only shown if there are no children -->
+            <div class="account-id" ng-if="!hasChildren">{{ group.accountIdentification[0].id || group.cardNumber }}</div>
+
+        </div>
+
+        <ul ng-class="group.isOpen ? 'list-open' : 'list-closed'" ng-if="group.accounts.length" ng-show="group.isOpen">
+            <li ng-repeat="group in group.accounts" ng-include="'group-item-current-account.html'"></li>
+        </ul>
+
+        <div class="total"
+             ng-click="$event.stopPropagation()"
+             ng-if="controller.preferences.showTotals && group.accounts.length">
+            <span>Total:</span>
+            <div class="pull-right" lp-amount="groupTotal.totalBalance" lp-amount-currency="groupTotal.currency"></div>
+        </div>
+    </script>
+
+    <!-- Card group template -->
+    <script type="text/ng-template" id="group-item-card.html">
+
+        <div class="account-branch clearfix" tabindex="0" role="button"
+             ng-init="groupTotal = controller.getGroupTotal(group, controller.preferences.defaultBalanceMapped); hasChildren = group.accounts.length > 0;"
+             ng-class="{main: hasChildren}"
+             on-select="!hasChildren ? controller.selectAccount(group, 'card') : (group.isOpen = !group.isOpen)">
+
+            <span class="title" ng-class="hasChildren ? 'title-expandable' : ''">
+                <i class="caret {{ group.isOpen ? 'caret-down' : 'caret-right' }}" ng-if="hasChildren"></i>
+                <span ng-if="!hasChildren" class="account-icon lp-icon lp-icon-credit-card" ng-style="{color: group.iconColor}"></span>
+                {{ group.alias || group.title }}
+            </span>
+
+            <!-- Only shown for records without children -->
+            <div class="pull-right leaf" ng-if="!hasChildren">
+                <div class="pull-right" lp-amount="group[controller.preferences.defaultBalanceMapped + 'Balance']" lp-amount-currency="group.currency"></div>
+                <div class="balance lp-responsive lp-small-show">{{ controller.preferences.defaultBalanceMapped[0] }}:</div>
+                <div class="balance lp-responsive lp-normal-show">{{ controller.preferences.defaultBalanceMapped[0] }}:</div>
+                <div class="balance lp-responsive lp-large-show">{{ controller.preferences.defaultBalanceMapped }}:</div>
+                <i class="lp-icon lp-icon-angle-right"></i>
+            </div>
+
+            <!-- Shown in case if there are children -->
+            <div class="pull-right leaf leaf-children" ng-if="controller.preferences.showTotals && hasChildren && !group.isOpen">
+                <div lp-amount="groupTotal.totalBalance" lp-amount-currency="groupTotal.currency"></div>
+            </div>
+
+            <!-- Only shown if there are no children -->
+            <div class="account-id" ng-if="!hasChildren">{{ group.cardNumber }}</div>
+
+        </div>
+
+        <ul ng-class="group.isOpen ? 'list-open' : 'list-closed'" ng-if="hasChildren" ng-show="group.isOpen">
+            <li ng-repeat="group in group.accounts" ng-include="'group-item-card.html'"></li>
+        </ul>
+
+        <div class="total"
+             ng-click="$event.stopPropagation()"
+             ng-if="controller.preferences.showTotals && hasChildren">
+            <span>Total:</span>
+            <div class="pull-right" lp-amount="groupTotal.totalBalance" lp-amount-currency="groupTotal.currency"></div>
+        </div>
+    </script>
+
+</div>

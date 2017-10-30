@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <g:preferences>
+
+        <g:preference name="defaultBalance" label="Default balance" type="select-one"
+                      viewhint="select-one,admin,designModeOnly" default="current">
+            <g:enumeration value="current" label="Current balance"/>
+            <g:enumeration value="available" label="Available balance"/>
+        </g:preference>
+
+        <g:preference name="widgetLayout" label="Widget layout" type="select-one"
+                      viewhint="select-one,admin,designModeOnly" default="default">
+            <g:enumeration value="default" label="Default list"/>
+            <g:enumeration value="tiles" label="Tiles layout"/>
+            <g:enumeration value="tree" label="Tree structure"/>
+        </g:preference>
+
+    </g:preferences>
+
+    <title>Accounts</title>
+
+    <link rel="stylesheet" type='text/css' href="dist/styles/base.css"/>
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'dist/scripts/main');" class="lp-widget-accounts">
+    <div ng-controller="MainCtrl as mainCtrl"
+         lp-template="'templates/' + mainCtrl.layout + '.layout.html'"></div>
+</body>
+</html>

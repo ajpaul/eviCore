@@ -1,0 +1,29 @@
+{
+  "name": "widget-ebill-inbox",
+  "version": "2.2.3",
+  "description": "Ebill description",
+  "main": "./scripts/main.js",
+  "authors": [
+    "dragosh-bb <dragos@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.9.2",
+    "core": "^2.13.0",
+    "ui": "^2.8.0",
+    "module-ebilling": "^2.0.14",
+    "module-payments": "^2.3.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.28",
+    "config": "^3.4.0"
+  }
+}

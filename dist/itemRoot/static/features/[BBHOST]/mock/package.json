@@ -1,0 +1,28 @@
+{
+  "name": "dbp-mocks",
+  "version": "1.0.14",
+  "description": "Widget and Portal mocks",
+  "main": "./scripts/main.js",
+  "author": "Dragos <dragos@backbase.com>",
+  "contributors": [
+    "Borys Ponomarenko <borysp@backbase.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.backbase.com:7999/lpm/mock.git"
+  },
+  "publishConfig": {
+    "registry": "http://launchpad.backbase.com:8765"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "es6-promise-polyfill": "^1.2.0",
+    "lodash-compat": "^3.10.1",
+    "whatwg-fetch": "^0.11.0"
+  },
+  "config": {
+    "paths": {
+      "scripts": "./scripts"
+    }
+  }
+}

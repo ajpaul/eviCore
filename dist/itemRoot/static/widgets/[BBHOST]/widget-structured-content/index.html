@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <meta name="author" content="Backbase" />
+        <meta name="keywords" content="widget" />
+        <meta name="description" content="Structured Content Widget created for example purposes" />
+
+        <g:preferences>
+            <g:preference name="templateUrl" label="Content Template" type="select-one">
+                <g:enumeration label="Article Featured" value="templates/article-featured.html" />
+                <g:enumeration label="Article Full" value="templates/article-full.html" />
+                <g:enumeration label="Plain" value="templates/plain.html" />
+            </g:preference>
+        </g:preferences>
+        <link rel="stylesheet" href="dist/styles/base.css" />rence>
+    </head>
+    <body class="lp-widget-structured-content"
+          g:onload="requireWidget(__WIDGET__, 'dist/scripts/main');">
+        <div ng-controller="MainCtrl as ctrl"
+             lp-content-item="{{ctrl.initContentRef}}" on-change="ctrl.saveContentRef(contentRef)"
+             lp-content-item-async="{{ctrl.asyncContentRef}}">
+            <g:include proxy="false" src="$(contextRoot)/contenttemplates/rendered">
+                <g:http-param name="uuid" value="__WIDGET__.model.uuid" />
+                <g:http-param name="contextItemName" value="__WIDGET__.model.contextItemName" />
+            </g:include>
+        </div>
+    </body>
+</html>

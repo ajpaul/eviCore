@@ -1,0 +1,95 @@
+.portfolio-minimap {
+  .header {
+    height: 45px;
+  }
+
+  .gr {
+    height: 55px;
+    z-index: 2;
+  }
+
+  .axis {
+    &.x line {
+      display: none;
+    }
+  }
+
+  .domain {
+    display: none;
+  }
+
+  .brush {
+    .extent {
+      fill-opacity: .3;
+    }
+
+    .resize {
+      .drag {
+        shape-rendering: crispEdges;
+      }
+
+      path {
+        shape-rendering: crispEdges;
+      }
+    }
+  }
+
+  .timespan {
+    margin-left: 10px;
+  }
+
+  .frequency {
+    margin-right: 20px;
+    float: right;
+  }
+
+  /**
+   * Dropdown
+   */
+
+  .dropdown {
+    font-size: 1.25em;
+    line-height: 45px;
+    padding-left: 10px;
+  }
+
+  .dropdown-toggle {
+    line-height: 1.5em;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 7px;
+    padding: 0 5px;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    margin-top: 11px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      left: 60%;
+      width: 10px;
+      height: 10px;
+      border: 10px solid transparent;
+      border-top-width: 0;
+    }
+
+    &:before {
+      top: -11px;
+    }
+
+    li {
+      border-top: none;
+      cursor: pointer;
+    }
+
+    .active {
+      font-weight: bold;
+    }
+  }
+}

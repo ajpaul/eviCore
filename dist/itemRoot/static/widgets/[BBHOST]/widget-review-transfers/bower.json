@@ -1,0 +1,31 @@
+{
+  "name": "widget-review-transfers",
+  "version": "2.3.4",
+  "description": "Review transfers and submit those to processing",
+  "main": "./scripts/main.js",
+  "authors": [
+    "laurynas remeika <laurynas.remeika@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28",
+    "mock": "~1.0.5"
+  },
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "ui": "2.x",
+    "module-accounts": "2.x",
+    "module-payments": "2.x",
+    "module-p2p": "^1.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <template>
+        <type>CONTAINER</type>
+        <name>templateHendrikTest</name>
+        <properties>
+            <property name="Web">
+                <value type="string">templates/template-hendrik-test-web</value>
+            </property>
+            <property name="BundleName">
+                <value type="string">$(itemRoot)</value>
+            </property>
+            <property name="title">
+                <value type="string">Template Hendrik test</value>
+            </property>
+            <property name="DefaultDevice">
+                <value type="string">Web</value>
+            </property>
+        </properties>
+    </template>
+</catalog>

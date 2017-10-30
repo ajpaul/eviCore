@@ -1,0 +1,7 @@
+{
+  "title": "widget-example",
+  "specFile": "index.dev.html",
+  "tag": [
+    "-widget"
+  ]
+}

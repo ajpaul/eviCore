@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+    {{#links}}
+        {{#isCurrentLink}}
+            <li><span>{{title}}</span></li>
+        {{/isCurrentLink}}
+        {{^isCurrentLink}}
+            <li><a href="{{Url}}" {{#isExternalLink}}target="_blank"{{/isExternalLink}}>{{title}}</a></li>
+        {{/isCurrentLink}}
+        {{#children}}
+            {{> mustache_mid_level}}
+        {{/children}}
+    {{/links}}
+</ul>
+<br class="bd-clearfloat" />

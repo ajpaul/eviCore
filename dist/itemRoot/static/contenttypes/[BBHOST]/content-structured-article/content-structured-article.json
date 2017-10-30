@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "title": "Article",
+  "type": "object",
+
+  "definitions": {
+    "articleReferences": {
+      "title": "Reference",
+      "type": "object",
+      "properties": {
+        
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+
+        "url": {
+          "title": "URL",
+          "type": "string"
+        }
+         
+      }
+    }
+  },
+
+  "properties": {
+
+    "title": {
+      "id": "http://jsonschema.net/title",
+      "title": "Title",
+      "type": "string"
+    },
+    
+    "body": {
+      "title": "Article body",
+      "type": "string",
+      "placeholderText": "Write your blog post here...",
+      "metadata": {
+        "infoText": "Enter the article content",
+        "placeholderText": "Write your blog post here...",
+        "renderingHint": "richTextEditor"
+      }
+    },
+    
+    "read_length": {
+      "id": "http://jsonschema.net/read_length",
+      "title": "Reading lenght (in minutes)",
+      "type": "string"
+    },
+    
+    "background_image": {
+      "id": "http://jsonschema.net/background_image",
+      "title": "Background image",
+      "type": "string",
+      "metadata": {
+          "infoText": "Provide a picture for the article item",
+          "renderingHint": "image"
+      }
+    },
+    
+    "background_image_large": {
+      "id": "http://jsonschema.net/background_image_large",
+      "title": "Background image large",
+      "type": "string",
+      "metadata": {
+          "infoText": "Provide a picture for the article item",
+          "renderingHint": "image"
+      }
+    },
+    
+    "references": {
+      "title": "Article References",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/articleReferences"
+      },
+      "minItems": 0,
+      "metadata": {
+        "infoText": "Specify references used for this article."
+      }
+    },
+
+    "author": {
+      "title": "Author",
+      "type": "string",
+      "metadata": {
+        "infoText": "Specify the author either via autocomplete typing or by dragging an Author item into the field",
+        "renderingHint": "structuredContent"
+      }
+    }
+  
+  },
+
+  "required": [
+    "title",
+    "read_length",
+    "background_image",
+    "author",
+    "avatar"
+  ]
+
+}

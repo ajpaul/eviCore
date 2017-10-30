@@ -1,0 +1,30 @@
+{
+  "name": "module-content",
+  "description": "Module responsible for working with ICE and structured content functionality",
+  "version": "2.0.1",
+  "main": [
+    "./styles/base.less",
+    "./scripts/main.js"
+  ],
+  "authors": [
+    ""
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^3.0.1",
+    "core": "^3.0.1"
+  },
+  "devDependencies": {
+    "config": "^3.0.0",
+    "angular-mocks": "~1.5.0",
+    "mock": "^1.0.13"
+  }
+}

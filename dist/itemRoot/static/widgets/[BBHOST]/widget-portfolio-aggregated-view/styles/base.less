@@ -1,0 +1,106 @@
+.portfolio-aggregated-view {
+
+  /**
+   * Header
+   */
+
+  .header {
+    ul {
+      text-align: center;
+      margin: 0;
+      padding: 5px 0;
+    }
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+        padding-right: 5px;
+      }
+    }
+
+    .current {
+      font-weight: bold;
+    }
+  }
+
+  /**
+   * Views
+   */
+
+  .view {
+    height: 400px;
+
+    .ytm {
+      width: 100px;
+      position: absolute;
+      top: 40%;
+      left: 0;
+      text-align: center;
+    }
+  }
+
+  .treemap {
+    position: relative;
+  }
+
+  .node {
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    cursor: default;
+
+    span {
+      display: inline-block;
+      line-height: 14px;
+      vertical-align: middle;
+    }
+  }
+
+  .bonds {
+    svg {
+      position: absolute;
+      right: 0;
+    }
+
+    .axis {
+      pointer-events: none;
+    }
+
+    .domain {
+      display: none;
+    }
+  }
+
+  /**
+   * Footer
+   */
+
+  .footer {
+    position: relative;
+    height: 40px;
+
+    p {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      font-size: .8em;
+      width: 300px;
+    }
+
+    ul {
+      text-align: center;
+    }
+
+    li {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      cursor: pointer;
+      margin: 10px 10px 0 0;
+    }
+  }
+
+}

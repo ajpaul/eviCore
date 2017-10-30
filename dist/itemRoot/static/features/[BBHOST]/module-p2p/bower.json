@@ -1,0 +1,30 @@
+{
+  "name": "module-p2p",
+  "description": "Provides person to person services api",
+  "version": "1.0.0",
+  "main": "./scripts/main.js",
+  "authors": [
+    ""
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.backbase.com:7999/lpm/module-p2p.git"
+  },
+  "private": true,
+  "dependencies": {
+    "base": "^2.0.0",
+    "core": "^2.0.0"
+  },
+  "devDependencies": {
+    "config": "^3.0.0",
+    "angular-mocks": "~1.2.28"
+  }
+}

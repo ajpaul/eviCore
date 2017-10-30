@@ -1,0 +1,28 @@
+{
+  "name": "widget-transactions-chart-transactions",
+  "version": "2.1.0",
+  "description": "Transactions Charts Widget",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "module-transactions": "^3.0.0",
+    "module-accounts": "^2.0.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.28",
+    "requirejs": "~2.1.20",
+    "theme-default": "^1.0.9",
+    "config": "^3.0.0",
+    "mock": "^1.x"
+  }
+}

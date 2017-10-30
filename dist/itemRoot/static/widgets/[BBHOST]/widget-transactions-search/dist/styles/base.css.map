@@ -1,0 +1,1 @@
+{"version":3,"sources":["base.less"],"names":[],"mappings":"yEAAA,wBACI,UAAA,CADJ,sDAGQ,YAAA,CAAA","file":"base.css","sourcesContent":[".lp-transactions-search {\n    width: 100%;\n    button.dropdown-toggle .caret {\n        display: none;\n    }\n}\n"],"sourceRoot":"/source/"}

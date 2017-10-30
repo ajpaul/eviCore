@@ -1,0 +1,9 @@
+{
+  "title": "Labeled Input Component",
+  "custom": {
+    "bowerRoute": "../../../"
+  },
+  "tag": [
+    "launchpad-feature"
+  ]
+}

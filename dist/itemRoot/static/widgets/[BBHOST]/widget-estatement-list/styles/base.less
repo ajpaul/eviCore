@@ -1,0 +1,144 @@
+// Local variables
+@estatement-doc-row-height: 45px;
+@estatement-tile-head-bg: #9ba3af;
+@estatement-tile-bg: #f5f5f5;
+
+.lp-estatement-list {
+    padding: 10px;
+    min-height: 239px;
+
+    .panel-default {
+        border-color: transparent;
+    }
+
+    .document-wrapper {
+        position: relative;
+    }
+
+    .document-label {
+        display: inline-block;
+        white-space: nowrap;
+        width: 75%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .document-actions {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        clear: both;
+
+        .document-action {
+            margin-left: 23px;
+            width: 1em;
+            display: inline-block;
+            overflow: hidden;
+            &>a {
+                text-decoration: none;
+                outline: none;
+                color: #363636;
+            }
+            &>.disabled {
+                visibility: hidden;
+                color: #c6c6c6;
+            }
+        }
+    }
+
+    .category-panel {
+        position: relative;
+        float: left;
+        width: 50%;
+        padding: 10px;
+
+        .category-title {
+            font-size: 1.143em;
+            font-weight: normal;
+            color: #fff;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            background-color: @estatement-tile-head-bg;
+            line-height: 40px;
+            height: 40px;
+            padding-left: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .category-body {
+            font-size: 1em;
+            height: 220px;
+            background: @estatement-tile-bg;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            padding: 16px;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                li {
+                    margin-top: 10px;
+                }
+                li:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .category-btn {
+            position: absolute;
+            font-size: 1.143em;
+            right: 26px;
+            bottom: 26px;
+        }
+    }
+
+    .category-detail {
+        background-color: #e6e6e6;
+
+        .category-detail-title {
+            position: relative;
+            height: 90px;
+
+            .category-detail-title-wrapper {
+                line-height: 90px;
+                padding-left: 10px;
+                button {
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+
+        .category-detail-body {
+            max-height: (@estatement-doc-row-height + 5) * 10;
+            overflow-y: auto;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+
+                li {
+                    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.13);
+                    border-collapse: separate;
+                    background-color: #fff;
+                    height: @estatement-doc-row-height;
+                    line-height: @estatement-doc-row-height;
+                    margin-bottom: 5px;
+                    padding: 0 18px;
+                }
+            }
+        }
+    }
+
+    .no-results-wrapper {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .big-icon {
+        font-size: 4em;
+    }
+}

@@ -1,0 +1,58 @@
+/*----------------------------------------------------------------*/
+/* labeled input custom styles
+/*----------------------------------------------------------------*/
+.lp-labeled-input {
+  border-radius: 3px;
+}
+
+/*----------------------------------------------------------------*/
+/* otp-check styles
+/*----------------------------------------------------------------*/
+.lp-otp-check {
+  
+  .otp-content {
+    padding: 1em;
+  }
+
+  .otp-nav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 1em;
+  }
+
+  .channel-selector {
+    margin: 3em 0;
+    
+    .cell {
+      margin-bottom: 1em;
+    }
+    
+    .custom-radio {
+      margin-bottom: 2em;
+      .radio-label {
+        display: inline-block;
+        position: relative;
+        padding-left: 0.7em;
+        transform: translate(0, -20%);
+        .radio-label-main {
+          color: black;
+        }
+      }
+      
+      span {
+        vertical-align: middle;
+      }
+    }
+    
+  }
+
+  /* ----------- DESKTOP ---------- */
+  &.is-desktop {
+    .close-button {
+      margin: 5px;
+      cursor: pointer;
+    }
+  }
+}

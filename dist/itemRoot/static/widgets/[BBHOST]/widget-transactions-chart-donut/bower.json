@@ -1,0 +1,29 @@
+{
+  "name": "widget-transactions-chart-donut",
+  "version": "2.2.1",
+  "description": "Widget Transactions Chart Donut",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "ui": "2.x",
+    "module-accounts": "2.x",
+    "module-transactions": "^3.0.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.28",
+    "requirejs": "~2.1.20",
+    "theme-retail": "^1.0.0",
+    "config": "^3.0.0",
+    "mock": "^1.x"
+  }
+}

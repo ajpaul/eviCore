@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lp-amount-input</title>
+    <!--highlight-->
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css"/>
+    <script src="bower_components/prism/prism.js"></script>
+    <!-- /highlight-->
+    <link href="bower_components/theme/themes/default/css/base.css" rel="stylesheet"/>
+    <link href="styles/base.css" rel="stylesheet"/>
+    <!-- include core -->
+     <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <!-- create the demo -->
+    <script>
+        require(['base', './scripts/main'],
+            function (base, comp) {
+            var demo = base.createModule('demo.ui.lp-amount-input', [comp.name])
+                .controller('MainCtrl', function ($scope) {
+                    this.amount = 0;
+                    this.options = {
+                        currencySymbol: '$'
+                    };
+                });
+            base.bootstrap(document.body, [demo.name]);
+        });
+    </script>
+</head>
+
+<body class="container" ng-controller="MainCtrl as mainCtrl">
+    <h2>Amount input component</h2>
+    <p>Component for money and currency formatting</p>
+    <h3>Requirements</h3>
+    <ul>
+        <li>Support standard input functionality (eg. placeholder)</li>
+        <li>Support labels</li>
+        <li>Display currency symbol on blur</li>
+        <li>Format number with locale on blur</li>
+    </ul>
+    <h3>Usage example:</h3>
+    <div class="well">
+        <input lp-amount-input="{{mainCtrl.options}}" ng-model="mainCtrl.amount" placeholder="Enter amount" />
+        <select name="currencySelector" id="currencySelector" ng-model="mainCtrl.options.currencySymbol">
+            <option value="">Select Currency Symbol</option>
+            <option value="$">Currency symbol: $</option>
+            <option value="€">Currency symbol: €</option>
+        </select>
+        <p>Model value: <span ng-bind="mainCtrl.amount"></span></p>
+    </div>
+    <pre class="language-javascript"><code>
+    Widget.controller('MainCtrl', function () {
+        this.amount = 0;
+        this.options = {
+            currencySymbol: '$'
+        }
+    });
+    </code></pre>
+    <pre class="language-markup"><code>
+    &lt;input lp-amount-input=&quot;{{mainCtrl.options}}&quot; ng-model=&quot;mainCtrl.amount&quot; placeholder=&quot;Enter amount&quot; /&gt;
+    </code></pre>
+    <h3>Default options:</h3>
+    <ul>
+        <li>decimals: 2</li>
+        <li>hideGroupSep: false</li>
+        <li>allowNegative: false</li>
+        <li>currencySymbol: '' //leave empty to use locale settings by default</li>
+    </ul>
+</body>
+</html>

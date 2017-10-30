@@ -1,0 +1,84 @@
+@import '../bower_components/theme/core/bootstrap3/less/variables';
+@import '../bower_components/theme/universal/styles/variables';
+
+@color: @brand-primary;
+@color2: desaturate(@color, 40%);
+
+.portfolio-performance {
+
+  .header {
+    height: 25px;
+  }
+
+  .gr {
+    height: 265px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 5px 15px 0;
+  }
+
+  .switch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5em;
+
+    span {
+      text-decoration: none;
+      cursor: pointer;
+      color: lighten(@color2, 35%);
+      padding-left: 5px;
+
+      &.active {
+        color: #000;
+      }
+    }
+  }
+
+  .axis {
+    line {
+      fill: none;
+      stroke: fadeout(@color2, 85%);
+    }
+
+    &.zero line {
+      stroke: #000;
+    }
+
+    text {
+      fill: @color2;
+      font-size: .8em;
+    }
+
+    &.y text {
+      fill: #000;
+      text-anchor: start!important;
+    }
+
+    .domain {
+      display: none;
+    }
+  }
+
+  .line {
+    fill: none;
+    stroke: @color;
+    stroke-width: 2px;
+  }
+
+  .dots circle {
+    fill: @color;
+    stroke: #fff;
+  }
+
+  .bars rect {
+    fill: lighten(@color, 10%);
+
+    &.negative {
+      fill: lighten(@color2, 15%);
+    }
+  }
+
+}

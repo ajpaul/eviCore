@@ -1,0 +1,1 @@
+{"version":3,"sources":["base.css"],"names":[],"mappings":"AACA,iBAAiB,SAAS,mBAAA,CAAA","file":"widget-login.css","sourcesContent":["/* Build with bb-lp-cli @ v1.1.0 */\n.lp-login .alert{margin:0;padding:0 15px 15px}/*# sourceMappingURL=base.css.map */"],"sourceRoot":"/source/"}

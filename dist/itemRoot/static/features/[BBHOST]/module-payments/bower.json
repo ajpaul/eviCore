@@ -1,0 +1,32 @@
+{
+  "name": "module-payments",
+  "version": "2.6.10",
+  "description": "Payments module",
+  "main": [
+    "./styles/base.less",
+    "./scripts/main.js"
+  ],
+  "authors": [
+    ""
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "ui": "^2.10.1",
+    "core": "2.x",
+    "module-enrollment": "^2.x"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28",
+    "theme": "*"
+  }
+}

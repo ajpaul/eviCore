@@ -1,0 +1,65 @@
+.portfolio-assets {
+  overflow: hidden;
+
+  .gr {
+    height: 270px;
+    position: relative;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 0 15px 5px;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+
+  .axis text {
+    font-size: .8em;
+  }
+
+  .details {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+
+    .line {
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 100%;
+    }
+
+    table {
+      height: 100%;
+      width: 100%;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    label {
+      font-weight: normal;
+      width: 60px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  label {
+    padding: 0 5px;
+    margin-right: 3px;
+  }
+
+  .legend label {
+    margin-left: 10px;
+    height: 9px;
+    position: relative;
+    top: 5px;
+  }
+}

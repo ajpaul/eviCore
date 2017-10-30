@@ -1,0 +1,22 @@
+{
+  "name": "widget-advanced-content",
+  "version": "1.0.1",
+  "description": "",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "content-templates": "^2.0.0",
+    "base": "~3.0.1"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.3"
+  }
+}

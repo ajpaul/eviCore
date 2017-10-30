@@ -1,0 +1,120 @@
+.lp-accounts-tiles {
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .accounts {
+
+        // CSS columns
+        -webkit-column-count: 2;
+        -webkit-column-width: 15em;
+        -webkit-column-gap: 20px;
+        -moz-column-count: 2;
+        -moz-column-width: 15em;
+        -moz-column-gap: 20px;
+        column-count: 2;
+        column-width: 15em;
+        column-gap: 20px;
+
+        .account-block {
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+
+            .group-header {
+                margin-bottom: 10px;
+
+                .group-total {
+                    float: right;
+                }
+            }
+
+            .content {
+                position: relative;
+                border-width: 2px;
+                border-style: solid;
+                margin-bottom: 15px;
+                padding: 12px 15px 0;
+
+                .account-id {
+                    display: block;
+                }
+
+                .balance {
+                    text-align: right;
+                    margin: 10px -15px 0;
+                    padding: 15px 15px 10px;
+                    color: #FFF; // This color is always white, doesn't depend on theme
+
+                    .h2 {
+                        margin: 0;
+                    }
+
+                    .amount {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+
+            .content.card {
+                border-color: transparent;
+
+                .info {
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .balance {
+                    background: transparent;
+                    color: inherit;
+                }
+
+                .background {
+                    position: absolute;
+                    top: -2px;
+                    bottom: -2px;
+                    right: -2px;
+                    left: -2px;
+                    z-index: 1;
+                    opacity: .3;
+
+                    &.other {
+                        background: no-repeat left bottom / 35% url(../media/cc-other.png);
+                        opacity: 1;
+                    }
+                    &.visa {
+                        background-image: url(../media/cc-visa.png);
+                    }
+                    &.mastercard {
+                        background-image: url(../media/cc-mastercard.png);
+                    }
+                    &.amex {
+                        background-image: url(../media/cc-amex.png);
+                    }
+                }
+            }
+        }
+    }
+
+    .lp-small-size,
+    .lp-normal-size {
+        .accounts {
+            width: 100%;
+            padding-right: 0;
+
+            .account-block .group-total {
+                float: none;
+                font-weight: normal;
+            }
+        }
+    }
+
+}

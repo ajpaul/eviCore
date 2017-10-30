@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <meta name="author" content="Backbase" />
+        <meta name="keywords" content="widget" />
+        <meta name="description" content="Structured Content Widget created for example purposes" />
+
+        <!-- add theme -->
+        <link rel="stylesheet" href="bower_components/theme-default/dist/styles/base.css">
+        <link rel="stylesheet" href="styles/base.css" type="text/css" />
+
+        <!-- add main libs only dev required -->
+        <script src='bower_components/requirejs/require.js'></script>
+        <script src='bower_components/jquery/dist/jquery.js'></script>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src="bower_components/config/requirejs.conf.js"></script>
+
+        <script>
+         require(['base', 'mock'], function (base, mock) {
+             mock.Widget({
+                 preferences: {
+                     'contentRef': 'EXAMPLE_CONTENT_REF',
+
+                     // Reference only - Not required - since the content is hard-coded below
+                     'templateUrl': '$(itemRoot)/templates/article-featured.html',
+                     'linkBase': 'dynamic.dev.html'
+                 }
+             }).then(function(__WIDGET__) {
+                 base.requireWidget(__WIDGET__, 'scripts/main');
+             });
+         });
+        </script>
+    </head>
+
+    <body class="lp-widget-structured-content"
+          g:onload="requireWidget(__WIDGET__, 'scripts/main');"
+          ng-controller="MainCtrl as ctrl">
+        <div lp-content-item-async="{{ctrl.asyncContentRef}}">
+            <!-- Server-rendered content -->
+            <div class="structured-content-item-featured">
+                <div class="media">
+                    <div class="media-with-bg">
+                        <img src="/test/content/background.jpg" alt="Lorem Impsum" class="media-object media-bg-image" />
+                        <h4 class="media-heading">
+                            Lorem Impsum
+                        </h4>
+                        25 min • by Max Power
+                        <img src="/test/content/author.jpg" alt="Max Power" class="media-avatar img-circle" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

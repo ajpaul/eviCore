@@ -1,0 +1,29 @@
+{
+  "name": "widget-ebill-history",
+  "version": "2.1.7",
+  "description": "Ebill history description",
+  "main": "./scripts/main.js",
+  "authors": [
+    "dragosh-bb <dragos@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "ui": "2.x",
+    "module-ebilling": "2.x",
+    "module-payments": "2.x"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28"
+  }
+}

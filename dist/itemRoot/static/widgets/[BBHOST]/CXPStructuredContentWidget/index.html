@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <meta name="author" content="Backbase" />
+        <meta name="keywords" content="widget" />
+        <meta name="description" content="Sample Widget created for example purposes" />
+
+        <g:preferences>
+            <g:preference name="widgetChrome" label="Widget Chrome" type="select-one" default="$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_none.html">
+                <g:enumeration value="$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_none.html" label="No Chrome" />
+                <g:enumeration value="$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html" label="Default Chrome" />
+            </g:preference>
+        </g:preferences>
+        <link rel="stylesheet" href="css/structuredcontent.css" />
+
+        <script type="text/javascript" src="js/structuredcontent.js"></script>
+    </head>
+    <body g:onPrefModified="b$.universal.widgets.StructuredContentWidget.prefModified(__WIDGET__)" g:onload="b$.universal.widgets.StructuredContentWidget.start(__WIDGET__)">
+        <div class="bd-structured-content-widget">
+            <g:include proxy="false" src="$(contextRoot)/contenttemplates/rendered">
+                <g:http-param name="uuid" value="__WIDGET__.model.uuid" />
+                <g:http-param name="contextItemName" value="__WIDGET__.model.contextItemName" />
+            </g:include>
+        </div>
+    </body>
+</html>
+

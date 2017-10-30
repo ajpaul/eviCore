@@ -1,0 +1,29 @@
+{
+  "name": "widget-profile-preferences",
+  "version": "2.3.5",
+  "description": "Widget Profile Preferences",
+  "main": "./scripts/main.js",
+  "authors": [
+    "launchpad <dev.launchpad@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "module-accounts": "2.x",
+    "module-users": "^2.5.2",
+    "ui": "^2.10.1"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28"
+  }
+}

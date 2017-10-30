@@ -1,0 +1,33 @@
+<div ng-controller="profileSummaryController" class="lp-widget-profile-summary widget widget-default ng-cloak clearfix" lp-responsive="lp-responsive" on-size-change="onSizeChange(size)" size-rules="responsiveRules">
+    <div class="lp-widget-content widget-body panel-body no-min-height clearfix">
+
+        <div class="media">
+            <div class="profile-image--wrapper" ng-class="{'pull-left': responsive !== 'xs'}">
+                <img height="{{ profileImgSize }}" width="{{ profileImgSize }}" ng-if="model.photo" ng-src="{{ model.photo }}"/>
+                <div ng-if="!model.photo" profile-image="profile-image" fullname="{{ model.preferredName }}" size="profileImgSize" color="{{ profileImgBg }}"></div>
+            </div>
+            <div class="media-body">
+                <div class="hide-xs-widget">
+                    <h4 class="light-font" lp-i18n="Welcome"></h4>
+                    <div ng-if="!profileLink">
+                        <span class="h4 display-block"><strong>{{ model.preferredName }}</strong></span>
+                        <div lp-last-login="model.lastLoginDateTime" ng-if="lastLoginDateTimeShow" hide-after="lastLoginDateTimeHideAfter"></div>
+                    </div>
+                    <div ng-if="profileLink">
+                        <a name="myProfile" class="h4 btn-link display-block lp-profile-summary-username" ng-click="viewProfile()">
+                            <span>{{ model.preferredName }}</span>
+                        </a>
+                        <div lp-last-login="model.lastLoginDateTime" ng-if="lastLoginDateTimeShow" hide-after="lastLoginDateTimeHideAfter"></div>
+                        <button type="button" class="btn btn-link btn-sm no-padding top-spacing" ng-click="viewProfile()">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span lp-i18n="Profile settings"></span>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-link no-padding" ng-class="{ 'top-spacing' : !profileLink }" ng-click="logout()">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span lp-i18n="Sign out"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div ng-controller="SetupEBillsCtrl as ctrl" class="panel-default">
+
+    <!--  Alerts -->
+    <div class="lp-alerts" tabindex="-1">
+        <div class="alert alert-danger" ng-if="ctrl.errors">
+            <p ng-repeat="error in ctrl.errors">
+                <i class="lp-icon lp-icon-alert-error"></i><span lp-i18n="{{ error.code }}"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div ng-if="mainCtrl.bpModel.currentBiller.setupEBills">
+            <div lp-ebill-setup-view
+                 payee="mainCtrl.bpModel.currentBiller"
+                 callback="ctrl.exitEBillSetup()"
+                 log-errors="ctrl.logErrors">
+            </div>
+        </div>
+        <div ng-if="!mainCtrl.bpModel.currentBiller.setupEBills">
+            <div lp-template="templates/added-payee.ng.html"></div>
+        </div>
+    </div>
+</div>

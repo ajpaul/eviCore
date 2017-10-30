@@ -1,0 +1,37 @@
+<ul class="nav navbar-nav navbar-right ng-cloak profile-info" ng-class="{'profile-addition': profileInfo}" ng-if="profileInfo">
+    <li>
+        <div class="card">
+
+            <div class="logout pull-right" ng-click="logout()" role="button" aria-label="Sign out" tabindex="0">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </div>
+
+            <div class="pull-left">
+                <div class="pull-left hidden-xs hidden-sm">
+                    <img ng-if="profileInfo.photoUrl" ng-src="{{ profileInfo.photoUrl }}"/>
+
+                    <img ng-if="!profileInfo.photoUrl"
+                         profile-image="profile-image"
+                         fullname="{{ profileInfo.preferredName }}"
+                         size="35"
+                         color="{{ profileInfo.profileImgBg }}"/>
+                </div>
+
+                <span class="info h5">
+                    <span class="title">
+                        <a ng-href="{{ profileTitleLink }}">{{ profileTitle }}</a>
+                    </span>
+                    <br>
+                    <span class="name">{{ profileInfo.preferredName }}</span>
+                </span>
+            </div>
+
+        </div>
+    </li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right sign-in" ng-class="{'profile-addition': !profileInfo && signinLink}" ng-if="!profileInfo && signinLink">
+    <li>
+        <a class="link" ng-href="{{ signinLink }}">Sign in</a>
+    </li>
+</ul>

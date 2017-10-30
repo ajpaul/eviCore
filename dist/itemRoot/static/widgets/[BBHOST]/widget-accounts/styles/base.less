@@ -1,0 +1,86 @@
+.lp-widget-accounts {
+    .no-accordion {
+       min-height: 76px;
+       &.all-finances {
+           min-height: 114px;
+       }
+    }
+
+    .lp-widget-accounts__progress {
+       padding: 22px 0 0 0;
+    }
+
+    .lp-widget-accounts__progress-all-finances {
+       padding: 42px 0 0 0;
+    }
+
+    .panel-launcher {
+        position: relative;
+    }
+
+    .panel-group {
+        margin-bottom: 0px;
+    }
+
+    .panel-heading {
+        border-radius: 0;
+    }
+
+    .grouped-account p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 55%;
+        margin: 0;
+    }
+
+    span.group-totals,
+    .grouped-account span.account-balance {
+        margin-right: 10px;
+    }
+
+    .grouped-account span.account-icon {
+        margin-right: 2%;
+        margin-top: 2px;
+    }
+
+    .super-group {
+    }
+
+    .accordion {
+        .panel-group {
+            .panel + .panel {
+                margin: 0;
+            }
+            .panel {
+                .panel-heading {
+                    .panel-title {
+                        font-size: inherit;
+                        line-height: inherit;
+                        font-weight: inherit;
+                        .accordion-toggle {
+                            width: 100%;
+                            position: relative;
+                            display: block;
+                        }
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .panel-collapse {
+                    &>.panel-body {
+                        border: 0 transparent;
+                        border-top: 0 transparent;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@import 'tree.less';
+@import 'tiles.less';

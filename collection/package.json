@@ -1,0 +1,22 @@
+{
+  "name": "collection",
+  "version": "1.0.2",
+  "dependencies": {
+    "bower": "1.5.3",
+    "bb-cli": "0.3.0",
+    "filesystem-bower-resolver": "^1.2.0",
+    "bb-bower-resolver": "^1.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-theme": "bb build-themes -t ./themes",
+    "bower-install": "bower install",
+    "bower-install-force": "bower install -F",
+    "bower-install-save": "bower install --save",
+    "import-dashboard": "bb import --dashboard",
+    "import-collection": "bb import-collection -a",
+    "import-retail-portal": "bb import --target ../../cxp-exports/retail-banking",
+    "export-retail-portal": "bb export --type portal --portal retail-demo --save ../../cxp-exports/retail-banking --chunk --force",
+    "import-all": "bb import --dashboard && bb import-collection -a && bb import --target ../../cxp-exports/retail-banking"
+  }
+}

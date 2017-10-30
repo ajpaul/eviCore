@@ -1,0 +1,70 @@
+<div ng-controller="MainCtrl as mainCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Icons</h3>
+            <p class="text-muted" ng-bind="mainCtrl.iconClasses.length + ' icons available'"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Filter by class name" ng-model="filter" autofocus>
+                <span class="input-group-addon">
+                    <i class="lp-icon lp-icon-small lp-icon-search2"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="visible-xs-block">&nbsp;</div>
+
+        <div class="col-sm-6">
+            <div class="btn-group sizes pull-right">
+                <label class="btn btn-default btn-lg" ng-model="mainCtrl.size" btn-radio="'small'">
+                    <i class="lp-icon lp-icon-small lp-icon-check-empty"></i>
+                </label>
+                <label class="btn btn-default btn-lg" ng-model="mainCtrl.size" btn-radio="'medium'">
+                    <i class="lp-icon lp-icon-medium lp-icon-check-empty"></i>
+                </label>
+                <label class="btn btn-default btn-lg" ng-model="mainCtrl.size" btn-radio="'large'">
+                    <i class="lp-icon lp-icon-large lp-icon-check-empty"></i>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="sortingHeader">
+                            <button type="button" class="btn btn-link" ng-click="mainCtrl.changeOrder()">
+                                CSS class
+                                <i ng-class="'lp-icon lp-icon-small lp-icon-caret-' + (mainCtrl.order === '+' ? 'up' : 'down')"></i>
+                            </button>
+                        </th>
+                        <th>default</th>
+                        <th>current</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="className in mainCtrl.iconClasses | orderBy : mainCtrl.order | filter : filter">
+                        <td ng-bind="className"></td>
+                        <td>
+                            <i ng-class="'lp-icon lp-default-icon lp-icon-' + mainCtrl.size + ' ' + className.replace('lp-icon-', 'lp-default-icon-')"></i>
+                        </td>
+                        <td>
+                            <i ng-class="'lp-icon lp-icon-' + mainCtrl.size + ' ' + className"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{
+  "name": "widget-places",
+  "version": "2.4.8",
+  "main": "./scripts/main.js",
+  "homepage": "http://stash.backbase.com:7990/projects/lpw/repos/widget-places/browse",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "3.x",
+    "core": "3.x",
+    "ui": "3.x",
+    "module-places": "3.x"
+  },
+  "devDependencies": {
+    "theme": "2.x",
+    "config": "3.x",
+    "mock": "1.x",
+    "angular-mocks": "~1.5.7",
+    "dbp-services": "^0.2.0"
+  },
+  "config": {
+    "proxies": {
+      "/portalserver": "http://localhost:7777/portalserver",
+      "/api": "http://localhost:3030/"
+    }
+  },
+  "resolutions": {
+    "core": "^3.0.0",
+    "base": "^3.0.1",
+    "ui": "3.x",
+    "angular-translate": "~2.10.0",
+    "angular-resource": "~1.5.0",
+    "angular": "~1.5.0"
+  }
+}

@@ -1,0 +1,15 @@
+{namespace templates_templateSecond}
+/**
+ * Container Template
+ * @param item Item in context
+ */
+{template .templateSecond}
+    <div class="bp-container template-second" data-pid="{$item.name}">
+        <div class="bp-area template-second--area">
+            {foreach $child in $item.children}
+            	{include($child) |noAutoescape}
+            {/foreach}
+            <span>This is the second container</span>
+        </div>
+    </div>
+{/template}

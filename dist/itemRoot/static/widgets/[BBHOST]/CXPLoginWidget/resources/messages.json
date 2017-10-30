@@ -1,0 +1,9 @@
+{
+    "LOGIN": {
+        "CANNOT_AUTHENTICATE": "You have entered an incorrect username or password.",
+        "TOO_MANY_TIMES": "Your maximum number of login attempts has been exceeded.",
+        "ACCOUNT_LOCKED": "This account is currently unavailable.",
+        "MISSING_PASSWORD": "Please fill in your password.",
+        "MISSING_USERNAME": "Please fill in your user name."
+    }
+}

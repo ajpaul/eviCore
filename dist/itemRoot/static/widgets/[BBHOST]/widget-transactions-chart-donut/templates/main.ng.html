@@ -1,0 +1,8 @@
+<div ng-controller="MainCtrl as mainCtrl"
+     class="lp-transactions-chart-donut ng-cloak"
+     lp-responsive-callback="mainCtrl.responsiveCallback(size)">
+
+    <div lp-categories-spendings="mainCtrl.donut.data"
+         lp-accounts="mainCtrl.accountsModel"
+         options="mainCtrl.donut.options"></div>
+</div>

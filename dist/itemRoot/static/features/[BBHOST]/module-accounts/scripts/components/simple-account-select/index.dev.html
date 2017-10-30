@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>simple-account-select</title>
+    <!--highlight-->
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css"/>
+    <script src="bower_components/prism/prism.js"></script>
+    <!-- /highlight-->
+    <link href="bower_components/theme/themes/default/css/base.css" rel="stylesheet"/>
+    <link href="styles/base.css" rel="stylesheet"/>
+    <!-- include core -->
+     <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <!-- create the demo -->
+    <script>
+        require(['base', './scripts/main'],
+            function (base, comp) {
+            var demo = base.createModule('demo.ui.simple-account-select', [comp.name])
+                .controller('MainCtrl', ['$http', 'lpCoreUtils', function ($http, lpCoreUtils) {
+                    this.utils = lpCoreUtils;
+                    //component model
+                    this.accountFrom = {
+                        id: this.id + '.account-from',
+                        label: 'From',
+                        isMobileApp: this.utils.isMobileDevice(),
+                        placeholder: 'Select from Account'
+                    };
+
+                    //data model
+                    this.accountsModel = {
+                        accounts: [],
+                        loading: false,
+                        selected: null,
+                        opened: false
+                    };
+
+                    $http.get('mock/accounts.json').then(function(response) {
+                        this.accountsModel.accounts = response.data.accounts;
+                    }.bind(this));
+
+
+                }]);
+            base.bootstrap(document.body, [demo.name]);
+        });
+    </script>
+    <style>
+        .select-list-item-selected,
+        .select-list-item-selected:hover,
+        .select-list-item-selected:active {
+            background-color: #666;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="container" ng-controller="MainCtrl as mainCtrl">
+
+    <div class="source_section">
+        <h2>Usage example</h2>
+
+        <div class="source_example">
+            <lp-simple-account-select
+                model="mainCtrl.accountsModel"
+                options="mainCtrl.accountFrom">
+            </lp-simple-account-select>
+        </div>
+        <div ng-if="mainCtrl.accountsModel.selected" class="panel">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Selected account:</strong> {{mainCtrl.accountsModel.selected.description}} </li>
+              <li class="list-group-item"><strong>Account number:</strong> {{mainCtrl.accountsModel.selected.account.id}}</li>
+              <li class="list-group-item"><strong>Available balance:</strong> <span lp-amount="mainCtrl.accountsModel.selected.balance" lp-amount-currency="mainCtrl.accountsModel.selected.currencyCode"/></li>
+            </ul>
+        </div>
+    </div>
+    <pre class="language-markup"><code>
+    &lt;lp-simple-account-select model=&quot;mainCtrl.accountsModel&quot; options=&quot;mainCtrl.accountFrom&quot;&gt; &lt;/lp-simple-account-select&gt;
+    </code></pre>
+    <pre class="language-javascript"><code>
+    Widget.controller('MainCtrl', ['$http', 'lpCoreUtils', function ($http, lpCoreUtils) {
+        this.utils = lpCoreUtils;
+        //component model
+        this.accountFrom = {
+            id: this.id + '.account-from',
+            label: 'From',
+            isMobileApp: this.utils.isMobileDevice(),
+            placeholder: 'Select from Account'
+        };
+
+        //data model
+        this.accountsModel = {
+            accounts: [],
+            loading: false,
+            selected: null,
+            opened: false
+        };
+
+        $http.get('mock/accounts.json').then(function(response) {
+            this.accountsModel.accounts = response.data.accounts;
+        }.bind(this));
+
+
+    }]);
+    </code></pre>
+    <div class="source_section">
+        <h3>Data Format</h3>
+        <pre>
+        [
+        {
+            "description":"Primary Checking Account",
+            "account":{
+                "id":"00000011100500S",
+                "source":"PRTYINTERNAL"
+            },
+            "currencyCode":"USD",
+            "balance":"9252.89",
+            "accountMask":"0500"
+        },
+            ...
+        ]
+        </pre>
+    </div>
+
+</body>
+</html>

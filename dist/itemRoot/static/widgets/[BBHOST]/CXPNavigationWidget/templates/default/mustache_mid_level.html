@@ -1,0 +1,10 @@
+<li class="{{#isInPath}}active{{/isInPath}}{{^children.isEmpty}} dropdown-submenu{{/children.isEmpty}}">
+    <a href="{{Url}}" class="dropdown-toggle" data-toggle="dropdown">{{title}}</a>
+    {{^children.isEmpty}}
+        <ul class="dropdown-menu multi-level">
+            {{#children}}
+                {{> mustache_mid_level}}
+            {{/children}}
+        </ul>
+    {{/children.isEmpty}}
+</li>

@@ -1,0 +1,28 @@
+{
+  "name": "widget-accounts-dropdown",
+  "version": "1.9.0",
+  "description": "Widget Accounts dropdown",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.x",
+    "core": "^2.x",
+    "ui": "^2.x",
+    "module-accounts": "^2.x"
+  },
+  "devDependencies": {
+    "config": "^2.x",
+    "mock": "^1.x",
+    "angular-mocks": "~1.2.28",
+    "requirejs": "~2.1.20",
+    "theme-retail": "~1.0.0"
+  }
+}

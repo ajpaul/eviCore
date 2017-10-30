@@ -1,0 +1,33 @@
+{
+  "name": "widget-estatement-list",
+  "version": "2.4.0",
+  "description": "List estatements",
+  "main": "./scripts/main.js",
+  "authors": [
+    "Ben Sorohan <ben@backbase.com>"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.5.0",
+    "core": "^2.9.6",
+    "ui": "^2.4.11",
+    "module-estatements": "^2.0.4",
+    "module-users": "^2.5.1"
+  },
+  "devDependencies": {
+    "config": "^3.0.0",
+    "angular-mocks": "1.2.28",
+    "mock": "^1.0.5",
+    "requirejs": "~2.1.20",
+    "theme-retail": "^1.0.0",
+    "theme": "^4.0.0"
+  }
+}

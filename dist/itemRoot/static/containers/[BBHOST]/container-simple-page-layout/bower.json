@@ -1,0 +1,22 @@
+{
+  "name": "container-simple-page-layout",
+  "version": "1.0.3",
+  "authors": [
+    "Levy Fekete <levy@backbase.com>",
+    "Aliaksandr Astashenkau <aliaksandra@backbase.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "template-simple-page-layout": "^1.0.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

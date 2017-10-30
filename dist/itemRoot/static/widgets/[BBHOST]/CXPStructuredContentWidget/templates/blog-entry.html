@@ -1,0 +1,18 @@
+{{#contentRef}}
+<div class="blog-author clearfix row">
+    <div class="col-md-9">
+        <h1>{{title}}</h1>
+        <p>{{{text.html}}}</p>
+    </div>
+    <div class="col-md-3">
+        {{#author}}
+        <h4>Author</h4>
+        <img height="75" src="{{picture.path}}" style="float: left"/>
+        <div>
+            <h4>{{name}}</h4>
+            <h6>{{{description.html}}}</h6>
+        </div>
+        {{/author}}
+    </div>
+</div>
+{{/contentRef}}

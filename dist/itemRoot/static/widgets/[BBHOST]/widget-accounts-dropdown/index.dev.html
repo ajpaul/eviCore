@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <title>[DEV] widget-accounts-dropdown</title>
+    <link rel="stylesheet" href="./bower_components/theme-retail/dist/styles/base.css" type="text/css" />
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+     <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <script>
+        // adding a mock for Core Util Portal functions
+        require(['base','mock'], function (base, mock) {
+                // TODO move i18n to mock as default pref
+                window.launchpad = {
+                    i18n: {
+                        mergedFiles: true,
+                        path: 'bower_components/config/i18n'
+                    }
+                };
+
+                mock.Widget({
+                    preferences: {
+                        accountsDataSrc: '/api/v1/customer-assets',
+                        showAllAccountsItem: 'true'
+                    }
+                })
+                .then(function(__WIDGET__) {
+                    __WIDGET__.model = {
+                        name: 'widget-accounts-dropdown'
+                    };
+                    base.requireWidget(__WIDGET__, 'scripts/main');
+                });
+        });
+
+
+        /*
+            DEMO CONTROLLER
+         */
+
+
+        function demoCtrl($scope, lpCoreBus) {
+            var EVENT = 'launchpad-retail.accountSelected';
+            $scope.accounts = [{"alias":"Primary Checking account (5003)","id":"4495316"},{"alias":"Check account aptest","id":"4495319"},{"alias":"Savings account (test)","id":"4495320"},{"alias":"Six Month Certificate (1600)","id":"4495317"},{"alias":"College Fund (1610)","id":"4495318"},{"alias":"Three Month Certificate (0050)","id":"4496486"},{"alias":"Banking","id":"19776537"},{"alias":"MoneyMarketAccount","id":"19776538"},{"alias":"Visa Classic A+ (0161)","id":"4495321"},{"alias":"Visa Classic A+ (0162)","id":"4495322"},{"alias":"Credit Card","id":"19776540"},{"alias":"My Personal Loan (5000)","id":"19768455"},{"alias":"Loan_201","id":"19775908"},{"alias":"Kevins Securities Account","id":"19774933"},{"alias":"Investment1","id":"19774934"},{"alias":"Investment","id":"19774937"},{"alias":"Red Wing Shoe Company","id":"19775909"},{"alias":"Investment5 - Cash & MMF in Securities","id":"19776541"}];
+
+            $scope.onChange = function () {
+                lpCoreBus.publish(EVENT, {'accountId': $scope.value});
+            };
+
+            lpCoreBus.subscribe(EVENT, function (data) {
+                $scope.value = data.accountId;
+            });
+
+        }
+    </script>
+
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main');" class="lp-accounts-dropdown ng-cloak" ng-class="responsiveClass">
+    <div ng-controller="demoCtrl" class="well">
+        test external events:
+        <select ng-change="onChange()" ng-model="value">
+            <option value="{{el.id}}" ng-repeat="el in accounts">{{el.alias}}</option>
+        </select>
+    </div>
+
+
+    <div lp-template="'templates/main.html'"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "widget-ebill-add",
+  "version": "3.1.0",
+  "description": "Ebill add widget description",
+  "main": "./scripts/main.js",
+  "authors": [
+    "Backbase Launchpad Team"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.x",
+    "core": "^2.x",
+    "ui": "^2.10.1",
+    "module-payments": "^2.4.1",
+    "module-accounts": "^2.11.2",
+    "module-ebilling": "^2.3.6"
+  },
+  "config": {
+    "proxies": {
+      "/api": "http://localhost:7777/"
+    }
+  },
+  "devDependencies": {
+    "config": "3.x",
+    "angular-mocks": "~1.2.28",
+    "theme-retail": "^1.0.0"
+  }
+}

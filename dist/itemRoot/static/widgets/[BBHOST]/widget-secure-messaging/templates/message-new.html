@@ -1,0 +1,36 @@
+<div ng-controller="CreateLetterController" class="message-review-container no-padding col-xs-12">
+    <div class="new-message-content">
+        <form name="newMessageForm" ng-model="message" ng-submit="newMessageForm.$valid && send(letter, this);" novalidate>
+            <div class="new-message-text-container clearfix">
+
+                <div class="form-group" ng-class="{ 'has-error' : (newMessageForm.submitted || newMessageForm.question.$dirty) && newMessageForm.question.$error.required }">
+                    <label for="sm-new-message-question" class="sr-only" lp-i18n="Question"></label>
+                    <select class="form-control" name="question" id="sm-new-message-question"
+                            ng-model="selectedQuestion" placeholder="Question" aria-label="Select question" aria-required="true"
+                            ng-options="subject as subject.question for subject in subjects" required>
+                        <option value="">Choose a subject for your message</option>
+                    </select>
+                    <small class="text-danger" ng-show="(newMessageForm.submitted || newMessageForm.question.$dirty) && newMessageForm.question.$error.required" lp-i18n="Select question">
+                    </small>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error' : (newMessageForm.submitted || newMessageForm.body.$dirty) && newMessageForm.body.$error.required }">
+                    <label for="sm-new-message-body" class="sr-only" lp-i18n="Body"></label>
+                    <textarea name="body" id="sm-new-message-body" class="form-control" rows="6"
+                              ng-model="letter.body"
+                              placeholder="{{ 'Type your message here' | translate }}"
+                              aria-label="Enter message text"
+                              aria-required="true"
+                              required></textarea>
+                    <small class="text-danger" ng-show="(newMessageForm.submitted || newMessageForm.body.$dirty) && newMessageForm.body.$error.required" lp-i18n="Message is required"></small>
+                </div>
+
+                <div class="message-reply-control-container">
+                    <button name="cancel" class="btn btn-sm btn-link" ng-click="close(this)" aria-label="Cancel message creation" lp-i18n="Cancel"></button>
+                    <button name="save" class="btn btn-sm btn-link" ng-click="save(letter, this)" aria-label="Save and exit message creation" lp-i18n="Save as draft"></button>
+                    <button name="send" class="btn btn-md btn-success pull-right" ng-click="newMessageForm.submitted=true" type="submit" aria-label="Send message" lp-i18n="Send"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

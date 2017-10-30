@@ -1,0 +1,16 @@
+<div modal-dialog="" show="editorCtrl.removeConfirm">
+    <div class="panel-body">
+        <div class="modal-header">
+            <button type="button" ng-click="editorCtrl.hideConfirm()" class="close" aria-label="Close" ng-disabled="editorCtrl.isRemoving">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" lp-i18n="Remove Saving Goal"></h4>
+        </div>
+        <div class="modal-body" lp-i18n="Are you sure you want to delete TITLE goal?" translate-values="{title:editorCtrl.savingGoal.title}"></div>
+        <div class="modal-footer">
+            <button type="button" ng-click="editorCtrl.hideConfirm()" lp-i18n="Cancel" class="btn btn-link" ng-disabled="editorCtrl.isRemoving"></button>
+            <button type="button" ng-click="editorCtrl.remove(editorCtrl.savingGoal.id)" lp-i18n="Confirm" class="btn btn-primary" ng-show="!editorCtrl.isRemoving"></button>
+            <button type="button" lp-i18n="Removing..." class="btn btn-primary" ng-show="editorCtrl.isRemoving" ng-disabled="true"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="lp-accounts ng-cloak"
+     ng-class="mainCtrl.responsiveClass"
+     progress-indicator="mainCtrl.model.loadingNow"
+     custom-classes="'lp-widget-accounts__progress' + (mainCtrl.preferences.showAllFinances ? '-all-finances' : '')">
+
+    <!-- Alerts -->
+    <div lp-template="'templates/alerts.html'"></div>
+
+    <!--  Full Content -->
+    <div class="lp-widget-content"
+         ng-class="{ 'no-accordion': !mainCtrl.preferences.groupByInternalExternal, 'all-finances': mainCtrl.preferences.showAllFinances }">
+        <div class="panel-group">
+            <div ng-if="!mainCtrl.preferences.groupByInternalExternal"
+                 class="panel-launcher"
+                 ng-repeat="group in mainCtrl.model.assetCollection"
+                 lp-accounts-assets-group=""
+                 group="group"
+                 preferences="mainCtrl.preferences"
+                 selected-account-id="mainCtrl.model.selected"
+                 select-account="mainCtrl.selectAccount(account, groupCode)">
+            </div>
+
+            <div accordion="accordion" ng-if="mainCtrl.preferences.groupByInternalExternal" class="accordion">
+                <div accordion-group="accordion-group" is-open="mainCtrl.preferences.internalIsOpen">
+                    <div accordion-heading="accordion-heading">
+                        <i class="fa pull-right" ng-class="{ 'fa-minus-circle': mainCtrl.preferences.internalIsOpen, 'fa-plus-circle': !mainCtrl.preferences.internalIsOpen }"></i>
+                        <span lp-i18n="Internal Accounts"></span>
+                    </div>
+                    <div accordion="accordion" class="accordion nested-accordion">
+                        <div class="panel-launcher"
+                             ng-repeat="group in mainCtrl.model.internalCollection"
+                             lp-accounts-assets-group=""
+                             accordion-enabled="true"
+                             group="group"
+                             preferences="mainCtrl.preferences"
+                             selected-account-id="mainCtrl.model.selected"
+                             select-account="mainCtrl.selectAccount(account, groupCode)">
+                        </div>
+                    </div>
+                </div>
+                <div accordion-group="accordion-group" is-open="mainCtrl.preferences.externalIsOpen" ng-show="mainCtrl.model.loadingNow || mainCtrl.model.hasExternalAccounts()">
+                    <div accordion-heading="accordion-heading">
+                        <i class="fa pull-right" ng-class="{ 'fa-minus-circle': mainCtrl.preferences.externalIsOpen, 'fa-plus-circle': !mainCtrl.preferences.externalIsOpen }"></i>
+                        <span lp-i18n="External Accounts"></span>
+                    </div>
+                    <div accordion="accordion" class="accordion nested-accordion">
+                        <div class="panel-launcher"
+                             ng-repeat="group in mainCtrl.model.externalCollection"
+                             lp-accounts-assets-group=""
+                             accordion-enabled="true"
+                             group="group"
+                             preferences="mainCtrl.preferences"
+                             selected-account-id="mainCtrl.model.selected"
+                             select-account="mainCtrl.selectAccount(account, groupCode)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="mainCtrl.preferences.showAllFinances" class="panel-group">
+                <div class="panel-heading super-group lp-all-finances-btn" ng-click="mainCtrl.openAllFinances()">
+                    <i class="fa fa-chevron-right pull-right"></i>
+                    <span lp-i18n="All Finances"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

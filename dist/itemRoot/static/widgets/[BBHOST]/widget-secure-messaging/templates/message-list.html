@@ -1,0 +1,57 @@
+<ul class="list-group list-view">
+    <div class="message-title-container panel-heading" role="button"
+        ng-class="{ 'no-padding-right' : expanded() }" ng-show="title">
+        <!--ng-click="toggleVisibility();">-->
+        <span class="h4"><span lp-i18n="{{title}}"></span> <span class="badge" ng-hide="showList">{{ items.length }}</span></span>
+    </div>
+    <div ng-show="showList">
+        <li class="list-group-item list-view-row clearfix" ng-repeat="item in items" ng-class="(index === $index) ? 'expanded' : 'collapsed'" ng-click="expand($index)">
+            <div class="message list-view-container cursor-pointer clearfix" swipe
+                 ng-class="{ 'selected': item.id === selectedItem().id, unread: item.containsUnread }" role="button" aria-label="Select message" aria-selected="{{ item.id === selectedItem().id }}">
+                <div class="info">
+                    <div class="logo pull-left">
+                        <div class="unread-indicator pull-left"></div>
+                        <img ng-src="{{ picture(item.logoPath) }}" width="42" height="42" alt="" class="circle-crop" />
+                    </div>
+                    <div >
+                        <!-- <thread-item-counter ng-if="item.numberOfMessages > 1" count="{{ item.numberOfMessages }}" class="pull-right circle-crop"></thread-item-counter> -->
+
+                        <div class="message-date text-muted pull-right">
+                            {{ item.timestamp | date:'short' }}
+                            <i class="lp-icon lp-icon-angle-right" ng-click="select(item, $event)"></i>
+                        </div>
+                        <div class="message-header ellipsis">
+                            <span class="sender-name">{{ item.senderName || "Johny Sample" }} </span>
+                            <span class="label label-default category-label {{ item.category | lowercase }}">{{ item.category }}</span>
+                        </div>
+                        <div dropdown on-toggle="toggled(open)" class="pull-right">
+                            <i class="lp-icon lp-icon-menu_dots_vertical context-menu-icon" dropdown-toggle></i>
+                            <ul class="dropdown-menu message-list-controls">
+                            <li>
+                                <button type="button" class="btn btn-default btn-sm no-border" ng-hide="item.status === 'ARCHIVED' || item.status === 'SENT' || item.status === 'DRAFT'" ng-click="quickReply(item, $event);" aria-label="Reply to a message">
+                                    Reply
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-default btn-sm no-border" ng-click="quickDelete(item);" aria-label="Delete message">
+                                    Delete
+                                </button>
+                            </li>
+                            </ul>
+                        </div>
+                        <div class="subject ellipsis">
+                            <strong>Subject: </strong>{{ item.subject }}
+                        </div>
+                        <div class="message-content ellipsis">{{ item.body }}</div>
+                        <div class="message-footer">
+                            <button type="button" class="btn btn-default btn-md full-conversation pull-right" ng-click="select(item, $event);">
+                                Full conversation
+                                <span class="lp-icon lp-icon-shevron_right_fat"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </div>
+</ul>

@@ -1,0 +1,44 @@
+{
+   "accounts":[
+      {
+         "description":"Primary Checking Account",
+         "account":{
+            "id":"00000011100500S",
+            "source":"PRTYINTERNAL"
+         },
+         "currencyCode":"USD",
+         "balance":"9252.89",
+         "accountMask":"0500"
+      },
+      {
+         "description":"Six Month Certificate",
+         "account":{
+            "id":"00000011101600S",
+            "source":"PRTYINTERNAL"
+         },
+         "currencyCode":"USD",
+         "balance":"1607.83",
+         "accountMask":"1600"
+      },
+      {
+         "description":"College Fund",
+         "account":{
+            "id":"00000011101610S",
+            "source":"PRTYINTERNAL"
+         },
+         "currencyCode":"USD",
+         "balance":"893.93",
+         "accountMask":"1610"
+      },
+      {
+         "description":"My Personal Loan",
+         "account":{
+            "id":"00000011105000L",
+            "source":"PRTYINTERNAL"
+         },
+         "currencyCode":"USD",
+         "balance":"1000.00",
+         "accountMask":"5000"
+      }
+   ]
+}

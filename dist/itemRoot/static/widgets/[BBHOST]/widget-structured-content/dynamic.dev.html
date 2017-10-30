@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+        <meta name="author" content="Backbase" />
+        <meta name="keywords" content="widget" />
+        <meta name="description" content="Structured Content Widget created for example purposes" />
+
+        <!-- add theme -->
+        <link rel="stylesheet" href="bower_components/theme-default/dist/styles/base.css">
+        <link rel="stylesheet" href="styles/base.css" type="text/css" />
+
+        <!-- add main libs only dev required -->
+        <script src='bower_components/requirejs/require.js'></script>
+        <script src='bower_components/jquery/dist/jquery.js'></script>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src="bower_components/config/requirejs.conf.js"></script>
+
+        <script>
+         require(['base', 'mock', 'module-content'], function (base, mock, content) {
+             mock.Widget({}).then(function(__WIDGET__) {
+                 base.requireWidget(__WIDGET__, 'scripts/main');
+             });
+
+             content.config(['lpContentProvider', function (lpContentProvider) {
+                 // Rendered content endpoint (using a static file for dev)
+                 var STRUCTURED_CONTENT_ENDPOINT = '$(contextRoot)/test/content/index.html';
+                 lpContentProvider.setStructuredContentEndpoint(STRUCTURED_CONTENT_ENDPOINT);
+             }]);
+         });
+        </script>
+    </head>
+
+    <body class="lp-widget-structured-content"
+          ng-controller="MainCtrl as ctrl">
+        <div lp-content-item-async="{{ctrl.asyncContentRef}}">
+            <!-- Content to be replaced dynamically by lp-content-item-async directive -->
+            Fetching content...
+        </div>
+    </body>
+</html>

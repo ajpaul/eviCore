@@ -1,0 +1,14 @@
+<div ng-controller="MainCtrl as mainCtrl" class="lp-transactions-search ng-cloak"
+     lp-responsive-callback="">
+    <div lp-transactions-search="lp-transactions-search"
+        accounts="accounts"
+        contacts="contacts"
+        transactions-categories="transactionsCategory"
+        show-categories-toggle="showCategories"
+        show-export-button="showExportButton"
+        on-perform-search="onPerformSearch(filters)"
+        on-clear-search="onClearSearch()"
+        on-update-search="onUpdateSearch()"
+        on-change-sort="onChangeSort(value)"
+        on-export-transactions="onExportTransactions(format)"></div>
+</div>

@@ -1,0 +1,64 @@
+/**
+ * launcher-deck
+ * namespace: lp-lc
+ */
+.lp-page-children .bp-container {
+	z-index: auto;
+}
+.lp-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 4;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: url("../media/overlay-bg.png") repeat;
+}
+
+.lp-launcher-area.widget.loading .lp-panel-mainarea {
+	min-height: 100px;
+	padding: 20px;
+}
+.lp-launcher-area.widget.loading > .bp-area > .bp-container > .lp-panel-mainarea:before {
+	content: '\f110';
+	font-size: 50px;
+	color: #888;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	display: block;
+	text-align: center;
+	-webkit-animation: spinner 2s infinite linear;
+	animation: spinner 2s infinite linear;
+}
+
+/* hide widget and other containers if loading class is present */
+.lp-launcher-area.widget.loading > .bp-area > .bp-container > .lp-panel-mainarea > .bp-widget,
+.lp-launcher-area.widget.loading > .bp-area > .bp-container > .lp-panel-mainarea > .bp-container {
+	display: none;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
